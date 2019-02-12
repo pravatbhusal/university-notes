@@ -1,0 +1,3 @@
+Hello, file!
+This is a second line of output.
+This is on the same line.This is on the same line.

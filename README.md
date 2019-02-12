@@ -1,2 +1,2 @@
-# university
-A repository containing personal notes and practice for my Computer Science education at The University of Texas.
+# University
+This folder showcases my notes, code, and research I accumulated throughout my studies at The University of Texas at Austin. I'm an aspiring Bachelor's of Science Computer Science graduate.
