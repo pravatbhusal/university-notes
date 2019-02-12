@@ -1,2 +1,2 @@
 # University
-This folder showcases my notes, code, and research I accumulated throughout my studies at The University of Texas at Austin. I'm an aspiring Bachelor's of Science Computer Science graduate.
+This folder showcases my notes, code, and research I accumulated throughout my studies at The University of Texas at Austin.
