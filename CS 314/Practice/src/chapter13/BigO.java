@@ -1,5 +1,7 @@
 package chapter13;
 
+import java.util.Arrays;
+
 // CS314 Section Problems - Algorithm Analysis
 public class BigO {
 
@@ -89,10 +91,14 @@ public class BigO {
 			if(data[i] == key) {
 				result = new int[data.length]; // N * N = N^2
 				Arrays.fill(data, i); // N * N = N^2
-				process(data, i, key); // N * N = N^2
+				process1(data, i, key); // N * N = N^2
 			}
 		}
+		return null;
 	}
+
+	// to remove syntax error
+	private void process1(int[] data, int i, int key) {}
 
 	public void fifthProblem() {
 		/* Question 1:
@@ -141,10 +147,20 @@ public class BigO {
 			int[] row = mat[r];
 			for(int c = 0; c < mat[0].length; c++) {
 				int val = mat[r][c];
-				result += process(val, mat, row);
+				result += process2(val, mat, row);
 			}
 		}
 		return result;
+	}
+
+	// to remove syntax error
+	private int process2(int val, int[][] mat, int[] row) {
+		return 0;
+	}
+
+	// to remove syntax error
+	private boolean check(int r, int[][] mat) {
+		return true;
 	}
 
 	public void sixthProblem() {

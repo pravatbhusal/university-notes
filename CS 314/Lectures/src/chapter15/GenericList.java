@@ -1,35 +1,42 @@
 package chapter15;
 
-public class IntList {
+/* Change the original IntList.java to a GackyGenericList
+	using the E class instead of integers. */
+public class GenericList<E> {
 
 	// container Array for the data-set
-	private int[] intList;
+	private E[] genericList;
 
-	// the current size of the IntList
+	// the current size of the GenericList
 	private int size;
 
 	/*
 	 * pre: capacity >= 0
-	 * post: initialize the intList
+	 * post: initialize the genericList
 	 */
-	public IntList(int capacity) {
+	public GenericList(int capacity) {
 		if(capacity < 0) {
 			throw new IllegalArgumentException("Capacity cannot be less than 0.");
 		}
-		intList = new int[capacity];
+		genericList = getArray(capacity);
+	}
+
+	// return an Array of E[] using a hack since in Java you cannot initialize an Array of E[]
+	private E[] getArray(int length) {
+		return (E[]) new Object[length]; // ignore the SuppressWarnings in the Eclipse IDE
 	}
 
 	/*
 	 * pre: None
-	 * post: copy the rawIntList into intoList
+	 * post: copy the rawGenericList into intoList
 	 */
-	public IntList(IntList rawIntList) {
-		size = rawIntList.size;
-		intList = new int[size];
+	public GenericList(GenericList<E> rawGenericList) {
+		size = rawGenericList.size;
+		genericList = getArray(size);
 
-		// deep copy the rawIntList to intList
+		// deep copy the rawGenericList to genericList
 		for(int element = 0; element < size; element++) {
-			intList[element] = rawIntList.get(element);
+			genericList[element] = rawGenericList.get(element);
 		}
 	}
 
@@ -40,31 +47,31 @@ public class IntList {
 
 	// return the capacity of the list
 	public int getCapacity() {
-		return intList.length;
+		return genericList.length;
 	}
 
 	/*
 	 * pre: position >= 0 and position < size
 	 * post: the value at position
 	 */
-	public int get(int position) {
+	public E get(int position) {
 		if(position < 0 || position >= size) {
 			throw new IllegalArgumentException("Position is either less than 0"
 					+ "or greater than or equal to size.");
 		}
-		return intList[position];
+		return genericList[position];
 	}
 
-	// resize the intList Array up to the length parameter
+	// resize the genericList Array up to the length parameter
 	private void resize(int length) {
-		int[] newIntList = new int[length];
+		E[] newGenericList = getArray(length);
 
 		// deep copy the new integer list from the old integer list
 		for(int element = 0; element < size; element++) {
-			newIntList[element] = intList[element];
+			newGenericList[element] = genericList[element];
 		}
 		// set the old integer list to the new list
-		intList = newIntList;
+		genericList = newGenericList;
 	}
 
 	/*
@@ -72,7 +79,7 @@ public class IntList {
 	 * post: push all values from the right of the position to the right
 	 * 		by one index and insert the value into the position
 	 */
-	public void insert(int position, int value) {
+	public void insert(int position, E value) {
 		if(position >= getCapacity()) {
 			// resize the list to the position
 			int resizeLength = position + 1;
@@ -80,25 +87,25 @@ public class IntList {
 		}
 		// traverse backwards and push each element to the right by one index
 		for(int element = size; element > position; element--) {
-			intList[element] = intList[element - 1];
+			genericList[element] = genericList[element - 1];
 		}
 		// insert the value into its proper position
-		intList[position] = value;
+		genericList[position] = value;
 		size++;
 	}
 
 	// merge another integer list to this integer list
-	public void insertAll(IntList mergeIntList, int position) {
+	public void insertAll(GenericList<E> mergeGenericList, int position) {
 		// for each position of the merge list, insert into this list
-		final int MERGE_LIST_SIZE = mergeIntList.size;
+		final int MERGE_LIST_SIZE = mergeGenericList.size;
 		for(int mergePosition = 0; mergePosition < MERGE_LIST_SIZE; mergePosition++) {
 			int insertPosition = position + mergePosition;
-			insert(insertPosition, mergeIntList.get(mergePosition));
+			insert(insertPosition, mergeGenericList.get(mergePosition));
 		}
 	}
 
 	// add to the end of the list
-	public void add(int value) {
+	public void add(E value) {
 		insert(size, value);
 	}
 
@@ -108,15 +115,15 @@ public class IntList {
 	 * 		the right of the position to the left by one index then
 	 * 		return the stored value at the position
 	 */
-	public int remove(int position) {
+	public E remove(int position) {
 		if(position < 0 || position >= size) {
 			throw new IllegalArgumentException("Position is either less than 0"
 					+ "or greater than or equal to size.");
 		}
 		// traverse backwards and push each element to the left by one index
-		int deletedValue = intList[position];
+		E deletedValue = genericList[position];
 		for(int element = position; element < size - 1; element++) {
-			intList[element] = intList[element + 1];
+			genericList[element] = genericList[element + 1];
 		}
 		size--;
 		return deletedValue;
@@ -139,7 +146,7 @@ public class IntList {
 			for(int removeIndex = stop; removeIndex < size; removeIndex++) {
 				/* replace all elements after the stop index
 					into the delete range of elements */
-				intList[removeIndex - range] = intList[removeIndex];
+				genericList[removeIndex - range] = genericList[removeIndex];
 			}
 			size -= range;
 		}
@@ -151,28 +158,27 @@ public class IntList {
 			return "[]";
 		}
 		// create a string builder that builds the list as a String
-		StringBuilder intListBuilder = new StringBuilder();
-		intListBuilder.append("[" + intList[0]); //fence-post solution
+		StringBuilder genericListBuilder = new StringBuilder();
+		genericListBuilder.append("[" + genericList[0]); //fence-post solution
 		for (int element = 1; element < size; element++) {
 			// append each value into the list
-			intListBuilder.append (", ");
-			intListBuilder.append(intList[element]);
+			genericListBuilder.append (", ");
+			genericListBuilder.append(genericList[element]);
 		}
-		intListBuilder.append("]");
-		return intListBuilder.toString();
+		genericListBuilder.append("]");
+		return genericListBuilder.toString();
 	}
 
-	// test the IntList class
+	// test the GenericList class
 	public static void main(String[] args) {
-		IntList list = new IntList(5);
-		IntList mergeList = new IntList(10);
+		GenericList<Integer> list = new GenericList<Integer>(5);
+		GenericList<Integer> mergeList = new GenericList<Integer>(10);
 		mergeList.add(5);
 		mergeList.add(10);
-		mergeList.add(15);
 		list.insertAll(mergeList, 0);
 		list.add(20);
 		list.insert(2, 25);
 		list.removeRange(1, 3);
-		System.out.println(list); // [5, 15, 20]
+		System.out.println(list); // [5, 20]
 	}
 }

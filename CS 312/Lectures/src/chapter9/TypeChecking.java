@@ -5,11 +5,9 @@ import java.util.ArrayList;
 public class TypeChecking {
 
 	/* Definitions:
-	 * 1. instanceof: Type comparision operator that returns true if
-	 * 		the Object on the left is a child or parent, the class, or an
-	 * 		interface of the Object on the right.
-	 * 		EX: longhorn instanceof Critter <- returns true
-	 * 		EX: object instanceOf String <- true
+	 * 1. instanceof: Type comparison operator that returns true if
+	 * 		the Object on the left is a child or the same class (or interface)
+	 *  		of the Object on the right.
 	 * 2. getClass: This method returns an Object as a Class data-type.
 	 * 		You can get various things, such as the class name, isArray,
 	 * 		the super class name, and much more.
@@ -18,31 +16,26 @@ public class TypeChecking {
 	 *		to create your own logic to compare between Objects.
 	 */
 
-	/* Extra Notes:
-	 * 1. When an instanceof has no relationship (Child or Parent),
-	 * 		compiler returns a Syntax Error.
-	 */
-
 	/* Programming Hygiene Tips:
 	 * 1. Do NOT downcast, it will only throw a ClassCastException at runtime.
 	 * 2. When overriding the equals method, it must have a single parameter of an
 	 * 		Object or else it will be considered as "overloading," instead.
+	 * 3. When using instanceof on completely unrelated Objects (neither Child or Parent),
+	 * 		the compiler is smart enough to return a Syntax error.
 	 */
 
 	public static void main(String[] args) {
-		// up-casting (Parent equals new Child)
+		// up-casting (Parent equals new Child) <- Read Polymorphism.java Extra Notes #6 for more info
 		Object upCastingObj = new String();
 
-		// ERROR! down-casting (Child equals new Parent) <- Read Programming Hygiene Tips #1 for more info
-		String exceptionStr = (String) new Object();
+		// ERROR! down-casting (Child equals new Parent) <- Read Programming Hygiene #6 for more info
+		// String exceptionStr = (String) new Object();
 
 		// instance of <- Read Definitions #1 and Extra Notes #1 for more info
 		String testStr = "This is a test String...";
 		Object testObj = new Object();
-		ArrayList<String> testList = new ArrayList<String>();
-		System.out.println(testStr instanceof Object); // output: true <- child is an instance of parent
-		System.out.println(testObj instanceof String); // output: false <- parent is not an instance of child
-		System.out.println(testList instanceof ArrayList); // output: true <- is the same class
+		boolean instanceOf = testStr instanceof Object; // true, since String (Child) is an instanceOf Object (Parent)
+		instanceOf = testObj instanceof String; // false, since Object (Parent) is NOT an instanceOf String (Child)
 
 		// equals method <- Read Programming Hygiene #2 for more info
 		TypeChecking check1 = new TypeChecking();
