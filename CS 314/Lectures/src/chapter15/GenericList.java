@@ -1,8 +1,11 @@
 package chapter15;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /* Change the original IntList.java to a GackyGenericList
 	using the E class instead of integers. */
-public class GenericList<E> {
+public class GenericList<E> implements Iterable<E> {
 
 	// container Array for the data-set
 	private E[] genericList;
@@ -180,5 +183,52 @@ public class GenericList<E> {
 		list.insert(2, 25);
 		list.removeRange(1, 3);
 		System.out.println(list); // [5, 20]
+	}
+
+	// iterator method from the Iterable interface
+	// use this method to iterate through the list and use for each loop
+	@Override
+	public Iterator<E> iterator() {
+		// use an inner-GenericList Iterator class
+		return new GLIterator();
+	}
+
+	// create an inner-class that implements the Iterator interface
+	private class GLIterator implements Iterator<E> {
+
+		private int indexOfNext;
+		private boolean isRemoveSafe;
+
+		// return if there is a next index available
+		@Override
+		public boolean hasNext() {
+			return indexOfNext < getSize();
+		}
+
+		// return and move to the next index
+		@Override
+		public E next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException("No more elements left.");
+			}
+			// move cursor to the right
+			E result = genericList[indexOfNext];
+			isRemoveSafe = true;
+			indexOfNext++; 
+			return result;
+		}
+
+		// remove the next index (indexOfNext)
+		@Override
+		public void remove() {
+			if(!isRemoveSafe) {
+				throw new IllegalStateException("Not okay to remove. Call next.");
+			}
+			// move cursor to the left and remove the next index
+			isRemoveSafe = false;
+			indexOfNext--;
+			GenericList.this.remove(indexOfNext);
+		}
+
 	}
 }
