@@ -9,7 +9,7 @@ public class StringBuilders {
 	 */
 
 	/* Extra Notes:
-	 * 1. Since Strings are immutable, they take O(N^2) time whenever concatenating Strings
+	 * 1. Since Strings are immutable, they take O(N) time whenever concatenating Strings
 	 * 		because new Strings are created and iterated over the internal char[] Array.
 	 */
 
@@ -18,7 +18,7 @@ public class StringBuilders {
 		// conventional String concatenation
 		String firstName = "Pravat";
 		String lastName = "Bhusal";
-		String fullName = firstName + " " + lastName; // O(N^2) because new Strings are created
+		String fullName = firstName + " " + lastName; // O(N) because new Strings are created
 
 		// StringBuilder concatenation
 		StringBuilder nameBuilder = new StringBuilder();
