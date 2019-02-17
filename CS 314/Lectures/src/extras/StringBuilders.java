@@ -4,7 +4,7 @@ public class StringBuilders {
 
 	/* Definitions:
 	 * 1. StringBuilder: An Object that handles String operations as most efficiently as possible.
-	 * 		- String Concatenation with the appends() method takes O(1) time unlike O(N^2) with
+	 * 		- String Concatenation with the appends() method takes O(1) time unlike O(N) with
 	 * 			conventional String concatenation using the "+" operator
 	 */
 
