@@ -3,7 +3,7 @@ package chapter11;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-// Iterators require the "Iterable" interface
+// Iterator data-types require the "Iterable" interface
 public class Iterators<E> implements Iterable<E> {
 
 	/* Definitions:
