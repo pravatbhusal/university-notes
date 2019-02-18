@@ -3,7 +3,7 @@ package chapter15;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/* Change the original IntList.java to a GackyGenericList
+/* Change the original IntList.java to a GenericList
 	using the E class instead of integers. */
 public class GenericList<E> implements Iterable<E> {
 
