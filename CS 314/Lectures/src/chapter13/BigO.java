@@ -20,7 +20,7 @@ public class BigO {
 	 * 		- Big-O notation is formatted as O(F(N)) where F(N) is a function
 	 * 			for the upper-bound (greatest) order of an algorithm.
 	 *		- T(N) is the # of statements executed.
-	 *		- Ex: If T(N) = 5N^2 + 5, then F(N) = 5N^2, and then O(N) = N^2
+	 *		- Ex: If T(N) = 5N^2 + 5, then F(N) = 5N^2, so O(N^2)
 	 */
 
 	/* Big-O Notation Types (Complexities ordered from smallest to largest)
