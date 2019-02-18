@@ -196,37 +196,45 @@ public class GenericList<E> implements Iterable<E> {
 	// create an inner-class that implements the Iterator interface
 	private class GLIterator implements Iterator<E> {
 
+		// gets the next step count for hasNext
 		private int indexOfNext;
+		
+		/* checks if its safe to remove [is true once program calls next()].
+		 * remove() deletes the next() method's previous returned value, so
+		 * next() must be called before remove; therefore, create this variable
+		 * to check if the program called next() before remove(). */
 		private boolean isRemoveSafe;
 
-		// return if there is a next index available
+		// return if there is a next element in the iteration available
 		@Override
 		public boolean hasNext() {
 			return indexOfNext < getSize();
 		}
 
-		// return and move to the next index
+		// return the next element in the iteration
 		@Override
 		public E next() {
 			if(!hasNext()) {
 				throw new NoSuchElementException("No more elements left.");
 			}
-			// move cursor to the right
+			// return the next element in the iteration, then move cursor to the right
 			E result = genericList[indexOfNext];
 			isRemoveSafe = true;
 			indexOfNext++; 
 			return result;
 		}
 
-		// remove the next index (indexOfNext)
+		// remove the last returned index by next()
 		@Override
 		public void remove() {
 			if(!isRemoveSafe) {
 				throw new IllegalStateException("Not okay to remove. Call next.");
 			}
-			// move cursor to the left and remove the next index
+			// move cursor to the left to remove the last returned index by next()
 			isRemoveSafe = false;
 			indexOfNext--;
+			
+			// remove the element, using the "this" keyword from GenericList due to being inside an inner-class
 			GenericList.this.remove(indexOfNext);
 		}
 
