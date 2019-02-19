@@ -4,6 +4,11 @@ public class Strings {
 
 	/* Definitions:
 	 * 1. String: An object storing a sequence of text characters.
+	 * 2. Concatenation: To combine Objects or primitives together.
+	 *	- In String concatenation, the first element must be a String (or null)
+	 *		or else String concatenation cannot convert the trailing Objects
+	 *		to Strings, properly...
+	 *	- Therefore, if concatenating primitives, make sure the first element is a String
 	 */
 
 	/* Extra Notes
@@ -34,9 +39,11 @@ public class Strings {
 		// declare and initialize a String
 		String name = "Pravat";
 
-		// String concatenation (combining)
-		String nullString = null + " this works!";
-		String regularString = "one string and " + " other string.";
+		// String concatenation (combining) <- Read Definitions #2 for more info
+		String nullString = null + " this works!"; // returns: null this works!
+		String regularString = "one string and " + " other string."; // returns: one string and another string
+		String concatPrimitive = "concat a primitive: " + 5; // returns: concat  a primitive: 5
+		String concatObject = new Object + " concat an Object"; // returns  java.lang.Object@xxxxx concat an Object
 
 		// get the index of the first occurrence of P in the String
 		int pIndex = name.indexOf("P"); // 0
