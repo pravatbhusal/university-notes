@@ -28,6 +28,7 @@ public class ClassesAndObjects {
 	 * 		- Basically, Parameters that define a method's call.
 	 * 		- EX: public int add(int num1, int num2); <- num1 and num2 are explicit
 	 * 12. Static: A universal keyword when assigned to data updates all class instances with the data.
+	 *		- Creates only one instance that's shared among all classes, space-efficient
 	 */
 
 	/* Extra Notes:
