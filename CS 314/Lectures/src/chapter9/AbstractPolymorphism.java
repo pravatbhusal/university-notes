@@ -13,7 +13,7 @@ public class AbstractPolymorphism extends InheritedAbstractParent {
 	 * 1. If there is even one abstract method, the class must be defined as abstract.
 	 * 2. Abstract Methods must be either public or protected since they're implemented.
 	 * 3. Abstract Methods cannot be static since that goes against abstraction.
-	 * 4. Everything method in an interface is actually abstract.
+	 * 4. Every method in an interface is actually abstract.
 	 */
 
 	// implemented from the abstract class, construct the class
