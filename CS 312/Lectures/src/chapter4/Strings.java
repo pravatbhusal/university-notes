@@ -42,7 +42,8 @@ public class Strings {
 		// String concatenation (combining) <- Read Definitions #2 for more info
 		String nullString = null + " this works!"; // returns: null this works!
 		String regularString = "one string and " + " other string."; // returns: one string and another string
-		String concatPrimitive = "concat a primitive: " + 5; // returns: concat  a primitive: 5
+		String concatPrimitive1 = "concat a primitive: " + 5; // returns: concat  a primitive: 5
+		String concatPrimitive2 = true + " concat a primitive"; // returns: true concat a primitive
 		String concatObject = new Object + " concat an Object"; // returns  java.lang.Object@xxxxx concat an Object
 
 		// get the index of the first occurrence of P in the String
