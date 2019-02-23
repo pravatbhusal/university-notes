@@ -40,7 +40,8 @@ list is empty; we can only assume the values within the Array.
   - O(N) average-case
   - O(1) best-case, when appending to the end of the list no need to fix positions
 - insertAll
-  - O(N^2) all cases
+  - O(N^2) worst-case and average-case, due to needing to iterate the merge list and inserting
+  - O(N) best-case, if the position parameter was at the very end of the list insert would be O(1)
 - add
   - O(N) worst-case, and F(N) = 2N due to resizing
   - O(N) average-case
