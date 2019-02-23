@@ -12,6 +12,7 @@ public class IntList {
 	 * pre: capacity >= 0
 	 * post: initialize the intList
 	 */
+	// Worst-case Time Complexity: O(N) due to creating an Array takes N operations
 	public IntList(int capacity) {
 		if(capacity < 0) {
 			throw new IllegalArgumentException("Capacity cannot be less than 0.");
@@ -23,6 +24,7 @@ public class IntList {
 	 * pre: None
 	 * post: copy the rawIntList into intoList
 	 */
+	// Worst-case Time Complexity: O(N)
 	public IntList(IntList rawIntList) {
 		size = rawIntList.size;
 		intList = new int[size];
@@ -34,11 +36,13 @@ public class IntList {
 	}
 
 	// return the size of the list
+	// Worst-case Time Complexity: O(1)
 	public int getSize() {
 		return size;
 	}
 
 	// return the capacity of the list
+	// Time Complexity: O(1)
 	public int getCapacity() {
 		return intList.length;
 	}
@@ -47,6 +51,7 @@ public class IntList {
 	 * pre: position >= 0 and position < size
 	 * post: the value at position
 	 */
+	// Worst-case Time Complexity: O(1)
 	public int get(int position) {
 		if(position < 0 || position >= size) {
 			throw new IllegalArgumentException("Position is either less than 0"
@@ -56,6 +61,7 @@ public class IntList {
 	}
 
 	// resize the intList Array up to the length parameter
+	// Worst-case Time Complexity: O(1)
 	private void resize(int length) {
 		int[] newIntList = new int[length];
 
@@ -72,6 +78,7 @@ public class IntList {
 	 * post: push all values from the right of the position to the right
 	 * 		by one index and insert the value into the position
 	 */
+	// Worst-case Time Complexity: O(N)
 	public void insert(int position, int value) {
 		if(position >= getCapacity()) {
 			// resize the list to the position
@@ -88,6 +95,7 @@ public class IntList {
 	}
 
 	// merge another integer list to this integer list
+	// Worst-case Time Complexity: O(N^2) due to insert()
 	public void insertAll(IntList mergeIntList, int position) {
 		// for each position of the merge list, insert into this list
 		final int MERGE_LIST_SIZE = mergeIntList.size;
@@ -98,6 +106,7 @@ public class IntList {
 	}
 
 	// add to the end of the list
+	// Worst-case Time Complexity: O(N) due to resize()
 	public void add(int value) {
 		insert(size, value);
 	}
@@ -108,6 +117,7 @@ public class IntList {
 	 * 		the right of the position to the left by one index then
 	 * 		return the stored value at the position
 	 */
+	// Worst-case Time Complexity: O(N)
 	public int remove(int position) {
 		if(position < 0 || position >= size) {
 			throw new IllegalArgumentException("Position is either less than 0"
@@ -128,6 +138,7 @@ public class IntList {
 	 * start, inclusive, and stop, exclusive. Shifts any succeeding elements to the
 	 * left (reduces their index). Size of list updated correctly.
 	 */
+	// Worst-case Time Complexity: O(N)
 	public void removeRange(int start, int stop) {
 		if(start < 0 || start > stop || stop > size) {
 			throw new IllegalArgumentException("The start is either less than zero, "
@@ -146,6 +157,7 @@ public class IntList {
 	}
 
 	// return the list as a String
+	// Worst-case Time Complexity: O(N)
 	public String toString() {
 		if (size == 0) {
 			return "[]";
