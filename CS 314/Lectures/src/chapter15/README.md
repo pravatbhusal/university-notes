@@ -22,7 +22,7 @@ A list that contains Generic data-types
 Most of the methods in the Lists have similar methods, instance variables, and functionality. Therefore, their
 complexity is the same for many of the implementations. Below is a representation of the complexities of the
 GenericList's public methods in best, average, and worst-case Big-O. Note that in Big-O, we cannot assume the
-list is empty; we can only assume the values within the Array.
+list is empty and make a fallacy that an algorithm is O(1); we can only assume the values within the Array.
 - capacity constructor
   - O(N) all cases due to creating a new Array
 - deep-copy constructor
