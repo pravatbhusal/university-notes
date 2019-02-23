@@ -14,11 +14,11 @@ public class SinglyLinkedList<E> {
 	// append to the end of the list
 	public void add(E data) {
 		Node<E> newNode = new Node<E>(data);
-		if(first == null) {
+		if(size == 0) {
 			// list is empty, fence-post our first reference
 			first = newNode;
 		} else {
-			// list is not empty, set the old last's next reference to the new Node
+			// set the old last's next reference to the new Node
 			last.setNext(newNode);
 		}
 		// update the last reference to the new Node
@@ -28,15 +28,14 @@ public class SinglyLinkedList<E> {
 
 	// add to the front of the list
 	public void addFront(E data) {
-		Node<E> newNode = new Node<E>(data);
-		if(first == null) {
-			// list is empty, fence-post our first and last reference
-			first = newNode;
-			last = newNode;
+		if(size == 0) {
+			// list is empty, let add() handle it
+			add(data);
 		} else {
-			// list is not empty, set the new first's next reference to the old first reference
+			// set the new Node's next reference to the old first reference
+			Node<E> newNode = new Node<E>(data);
 			newNode.setNext(first);
-			first = newNode;
+			first = newNode; // set the new first's reference to the new Node
 		}
 		size++;
 	}
