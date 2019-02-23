@@ -61,7 +61,7 @@ public class IntList {
 	}
 
 	// resize the intList Array up to the length parameter
-	// Worst-case Time Complexity: O(1)
+	// Worst-case Time Complexity: O(N)
 	private void resize(int length) {
 		int[] newIntList = new int[length];
 
