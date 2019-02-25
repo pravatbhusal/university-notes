@@ -81,8 +81,8 @@ public class IntList {
 	// Worst-case Time Complexity: O(N)
 	public void insert(int position, int value) {
 		if(position >= getCapacity()) {
-			// resize the list to the position
-			int resizeLength = position + 1;
+			// resize list based on a standard resize algorithm: capacity * 2 + 1
+			int resizeLength = getCapacity() * 2 + 1;
 			resize(resizeLength);
 		}
 		// traverse backwards and push each element to the right by one index
