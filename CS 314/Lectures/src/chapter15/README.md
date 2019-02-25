@@ -18,7 +18,7 @@ A list that can contain Object data-types, but is very gacky due to not using st
 A list that contains Generic data-types
 - Implements Iterable<E> to allow the client to iterate through the list
 
-# Efficiency
+# Time Efficiency
 Most of the methods in the Lists have similar methods, instance variables, and functionality. Therefore, their
 complexity is the same for many of the implementations. Below is a representation of the complexities of the
 GenericList's public methods in best, average, and worst-case Big-O. Note that in Big-O, we cannot assume the
@@ -35,7 +35,7 @@ list is empty and make a fallacy that an algorithm is O(1); we can only assume t
   - O(1) all cases
 - resize
   - O(N) all cases, due to deep-copying
-  - Tip: resize(int newCapacity) where newCapacity = oldCapacity + constant would take O(N) time for the add algorithm due to needing to resize in constant time. Therefore, it's advised to do newCapacity = oldCapacity * 2 + 1 so that add() becomes O(1) since it spreads out the cost of resizing enough.
+  - Tip: resize(int newCapacity) where newCapacity = oldCapacity + constant would take O(N) average-case for the add algorithm due to needing to resize in constant time. Therefore, it's advised to do newCapacity = oldCapacity * 2 + 1 so that add() becomes O(1) average-case since it spreads out the cost of resizing enough.
 - insert
   - O(N) worst-case, and F(N) = 2N due to resizing
   - O(N) average-case
