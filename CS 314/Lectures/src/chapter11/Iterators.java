@@ -18,8 +18,8 @@ public class Iterators<E> implements Iterable<E> {
 	/* Extra Notes:
 	 * 1. Whenever using a for-each loop on an implemented Iterator Object,
 	 * 		it calls the iterator() method inside and does the loop.
-	 * 2. You cannot add() into a list when using an iterator, or else it
-	 *	returns a state Runtime exception.
+	 * 2. You cannot call the add method of a data-structure when using an
+	 *	 iterator, or else it returns a state Runtime exception.
 	 */
 
 	// test the Iterators class
