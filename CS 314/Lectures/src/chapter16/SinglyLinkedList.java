@@ -60,6 +60,81 @@ public class SinglyLinkedList<E> {
 		size++;
 	}
 
+	// insert at a position of the list
+	public void insert(int position, E data) {
+		// fence-post solutions
+		if(position == 0) {
+			addFront(data); // front of list
+		} else if(position == size) {
+			add(data); // end of list
+		}
+		// get the previous Node of the target position
+		Node<E> prevNode = getNode(position - 1);
+
+		// set the new Node's next to the previous Node's next
+		Node<E> newNode = new Node<E>(data);
+		newNode.setNext(prevNode.getNext());
+
+		// set the previous Node's next to the new Node
+		prevNode.setNext(newNode);
+		size++;
+	}
+
+	// remove a Node at the front of the list
+	public E removeFront() {
+		E removed = first.getData();
+
+		// set the old first's Node to its next Node
+		first = first.getNext();
+
+		size--;
+		if(size == 0) {
+			// list is empty, so also update last
+			last = null;
+		}
+		return removed;
+	}
+
+	// remove a Node at a position of the list
+	public E remove(int position) {
+		if(position == 0) {
+			return removeFront(); // front of list
+		}
+		// get the previous Node of the target position
+		Node<E> prevNode = getNode(position - 1);
+		E removed = prevNode.getNext().getData();
+
+		// set the previous Node's next to its next next Node
+		prevNode.setNext(prevNode.getNext().getNext());
+
+		size--;
+		if(prevNode.getNext() == null) {
+			// program removed the last Node, so update last
+			last = prevNode;
+		}
+		return removed;
+	}
+
+	// return a Node's data at a position
+	public E get(int position) {
+		return getNode(position).getData();
+	}
+
+	// return a Node at a position
+	private Node<E> getNode(int position) {
+		// fence-post solution for efficiency
+		if(position == size - 1) {
+			return last;
+		}
+
+		// iterate till it reaches the position's Node
+		Node<E> currentNode = first;
+		for(int nodePos = 0; nodePos < position; nodePos++) {
+			currentNode = currentNode.getNext();
+		}
+		return currentNode;
+	}
+
 	// return the list as a String
 	@Override
 	public String toString() {
@@ -92,6 +167,13 @@ public class SinglyLinkedList<E> {
 		list.addFront(5);
 		list.add(102);
 		list.addFront(18);
-		System.out.println(list); // [18, 5, 12, 17, 102]
+		list.insert(3, 100);
+		list.remove(0);
+		list.remove(0);
+		list.remove(0);
+		list.remove(0);
+		list.remove(0);
+		list.remove(0);
+		System.out.println(list); // [12, 17, 102]
 	}
 }
