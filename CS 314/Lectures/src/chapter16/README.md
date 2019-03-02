@@ -1,7 +1,9 @@
-# LinkedList
-A list that links Nodes together to hold data without using an Array storage container.
+# SinglyLinkedList
+A list that utilizes references (pointers) called Nodes, which link between each other in a linear way, so no need for an Array container.
+- Grows and shrinks without using an Array container
+- Goes from the next Node, to the next Node, to the next Node, till it hits null, which is the end of the SinglyLinkedList
 
-# Efficiency Differences to an Array-based List:
+# SinglyLinkedList vs Array-based Lists:
 ### Adding to the lists
 - In the worst-case, adding to the last of an Array-based List like ArrayList would take O(N) due to needing to resize.
 However, a LinkedList is O(1) because it doesn't need to re-size.
