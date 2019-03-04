@@ -1,6 +1,9 @@
 package chapter16;
 
-public class SinglyLinkedList<E> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class SinglyLinkedList<E> implements Iterable<E> {
 
 	// the size of the list
 	private int size;
@@ -155,5 +158,56 @@ public class SinglyLinkedList<E> {
 		list.remove(0);
 		list.remove(0);
 		System.out.println(list); // [12, 17, 102]
+	}
+
+	// iterator interface implementation
+	@Override
+	public Iterator<E> iterator() {
+		return new LLIterator();
+	}
+
+	private class LLIterator implements Iterator<E> {
+
+		// the next Node to return
+		private Node<E> next;
+
+		// the index of next
+		private int indexNext;
+
+		// if its safe to remove the next Node
+		private boolean isRemoveSafe;
+
+		// constructor
+		public LLIterator() {
+			next = first;
+		}
+
+		// return if there is a next Node
+		@Override
+		public boolean hasNext() {
+			return next != null;
+		}
+
+		// return the next available Node
+		@Override
+		public E next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException("No more Nodes!");
+			}
+			E result = next.getData(); // get the data to return
+			next = next.getNext(); // go to the next Node
+			indexNext++; // increment next's index
+			isRemoveSafe = true; // now safe to remove the Node to return
+			return result;
+		}
+
+		// remove the previously returned next value
+		public void remove() {
+			if(!isRemoveSafe) {
+				throw new IllegalStateException("Cannot remove when haven't called next()");
+			}
+			SinglyLinkedList.this.remove(indexNext - 1); // remove previously returned Node
+			isRemoveSafe = false;
+		}
 	}
 }
