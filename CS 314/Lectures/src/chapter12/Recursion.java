@@ -7,7 +7,7 @@ public class Recursion {
 	 * 1. Recursion: A method that calls itself with different parameters.
 	 */
 
-	/*
+	/* Extra Notes:
 	 * 1. Any code before the recursive call is ran during the stack's pushing phase.
 	 * 2. Any code that stops the recursive call (base-case) is used to transition from
 	 * 		the stack's pushing phase to the stack's popping phase.
