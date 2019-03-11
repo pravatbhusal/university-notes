@@ -45,7 +45,11 @@ Recursively checks if a solution is correct, if not, then it backtracks to its p
 - Ex: A Sudoku algorithm that brute-forces through every possibilities until the entire matrix has been solved.
 
 ### General Backtracking Algorithm
-1. To backtrack, you must have a failed case (dead-end case) so the backtrack algorithm goes back to the previous-case (typically the child method returns false). Then the parent method call handles the false case and tries other possibilities until a child method returns true.  
-2. If the child method returned true, then it calls its own child method for the next step and attempts that step until it returns true, then it keeps going until the base-case has been reached.
-3. However, if the parent method call attempted all possibilities, then it returns false so that the grand-parent method that called the parent method call handles other possibilities as well.
-4. The program keeps going until the program has been solved.
+1. If at a solution, report success (return true)
+2. Loop every possible choice or current state node
+	- Make the choice for this current state
+	- Use a variable equal to the recursive call of the next step and check the value of that variable
+	- If the recursive call succeeds, report the success to the lower stack frame (return true)
+	- If the recursive call failed, back-out the choice and restore the
+		current state from the beginning of the loop
+3. Report failure (return false)
