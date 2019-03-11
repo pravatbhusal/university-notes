@@ -13,8 +13,8 @@ public class Interfaces implements ImplementedParent {
 	 * 1. If a class implements an interface, then all of the methods
 	 * 		within the interface must be added into the class.
 	 * 		- The class that implements the interface must override the methods
-	 * 2. Interface variables are public, static, final
-	 * 		- However, interface variables are NOT implemented by a class
+	 * 2. Interfaces cannot have instance variables
+	 * 		- However, interfaces can have public, static, final variables
 	 * 3. Interfaces have public methods, but NOT static or final
 	 * 4. Interfaces can be implemented an INFINITE number of times (separated by commas)
 	 * 5. Methods inside the interface Object do NOT have a body.
