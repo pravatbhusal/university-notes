@@ -1,5 +1,7 @@
 package chapter12;
 
+import java.util.TreeSet;
+
 public class RecursiveBacktracking {
 
 	/* Write a method countBinary that accepts an integer n as a parameter and 
@@ -56,5 +58,42 @@ public class RecursiveBacktracking {
 			helperWaysToClimb(stairs, stepsSum + 1, steps + "1, ");
 			helperWaysToClimb(stairs, stepsSum + 2, steps + "2, ");
 		}
+	}
+
+	/* Write a method printSquares that uses recursive backtracking to find all 
+	 * ways to express an integer as a sum of squares of unique positive integers. 
+	 * Some numbers (such as 128 or 0) cannot be represented as a sum of squares, 
+	 * in which case your method should produce no output. Keep in mind that the 
+	 * sum has to be formed with unique integers.
+	 */
+	public static void printSquares(int number) {
+		helperPrintSquares(number, 1, new TreeSet<Integer>());
+	}
+
+	// a helper method for the print squares method
+	private static void helperPrintSquares(int currentNumber, int index, TreeSet<Integer> squares) {
+		if(currentNumber == 0) {
+			// base case found a list that adds up to number
+			System.out.println(squares);
+		} else if(currentNumber > 0) {
+			// iterate through each potential number that can be summed to equal the currentNumber
+			final int MAXIMUM_POSSIBLE_INTEGER = (int) Math.sqrt(currentNumber);
+			for(int number = index; number <= MAXIMUM_POSSIBLE_INTEGER; number++) {
+				int potentialSquare = number * number;
+				if(potentialSquare <= currentNumber) {
+					// found a number's square that isn't greater than the current number
+					squares.add(number);
+
+					/* recursively go to the next step by decreasing the current
+	                    number by the square and going to the next index */
+					helperPrintSquares(currentNumber - potentialSquare, number + 1, squares);
+
+					/* a combination was finished and the stack is being popped, so
+	                    remove the number to open up space for the next combination */
+					squares.remove(number);
+				}
+			}
+		}
+		// combination is finished, either it failed or did the base-case
 	}
 }
