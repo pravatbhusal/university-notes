@@ -20,7 +20,7 @@ public class RecursiveBacktracking {
 				so print the current number that contains all the concatenated 0s and 1s */
 			System.out.println(currentNumber);
 		} else {
-			// do every binary combination of either 0 or 1, becoming O(N^2)
+			// do every binary combination of either 0 or 1, becoming somewhat O(N^2)
 			helperCountBinary(number - 1, currentNumber + "0");
 			helperCountBinary(number - 1, currentNumber + "1");
 		}
@@ -52,7 +52,7 @@ public class RecursiveBacktracking {
 			steps = steps.substring(0, steps.length() - TRAILING_COMMA_LENGTH);
 			System.out.println(steps + "]");
 		} else if(stepsSum < stairs) {
-			// test out every stairs combination of either 1 or 2, becoming O(N^2)
+			// test out every stairs combination of either 1 or 2, becoming somewhat O(N^2)
 			helperWaysToClimb(stairs, stepsSum + 1, steps + "1, ");
 			helperWaysToClimb(stairs, stepsSum + 2, steps + "2, ");
 		}
