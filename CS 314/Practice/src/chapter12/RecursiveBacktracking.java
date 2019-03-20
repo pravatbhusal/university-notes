@@ -141,4 +141,34 @@ public class RecursiveBacktracking {
 		// either the with element was not in-bounds or less than without
 		return withoutElement;
 	}
+
+	/* Write a method subsets that uses recursive backtracking to find every 
+	 * possible sub-list of a given list. A sub-list of a list L contains 0 or 
+	 * more of L's elements. Your method should accept a List of strings as its 
+	 * parameter and print every sub-list that could be created from elements of 
+	 * that list, one per line.
+	 */
+	public static void subsets(List<String> list) {
+		helperSubsets(list, 0, list.size());
+	}
+
+	// a helper method for the subsets method
+	private static void helperSubsets(List<String> list, int index, int remaining) {
+		if(remaining == 0) {
+			// base case, this list's combination was exhausted
+			System.out.println(list);
+		} else {
+			// go to the next step
+			helperSubsets(list, index + 1, remaining - 1);
+
+			// remove this step's String at the index
+			String removedString = list.remove(index);
+
+			// go to the next step without the String at the index
+			helperSubsets(list, index, remaining - 1);
+
+			// restore the state of the list from when removing the String
+			list.add(index, removedString);
+		}
+	}
 }
