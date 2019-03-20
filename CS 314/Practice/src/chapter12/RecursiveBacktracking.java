@@ -16,8 +16,8 @@ public class RecursiveBacktracking {
 	// a helper method for count binary
 	private static void helperCountBinary(int number, String currentNumber) {
 		if(number == 0) {
-			/* base case where we exhausted the length of number, so print the
-	            current number that contains all the concatenated 0s and 1s */
+			/* base case where we exhausted the length of number for this recursive combination,
+				so print the current number that contains all the concatenated 0s and 1s */
 			System.out.println(currentNumber);
 		} else {
 			// create cases for when the next binary is 0 or 1
