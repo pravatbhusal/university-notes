@@ -42,14 +42,73 @@ A method that calls itself with different parameters.
 	
 # Recursive Backtracking
 Recursively checks if a solution is correct, if not, then it backtracks to its previous steps and tries other possibilities until the entire algorithm has been solved.
-- Ex: A Sudoku algorithm that brute-forces through every possibilities until the entire matrix has been solved.
+- Ex: A Sudoku algorithm that brute-forces through every possibilities until the entire matrix has been solved.  
 
-### General Backtracking Algorithm
-1. If at a solution, report success (return true)
-2. Loop every possible choice or current state node
-	- Make the choice for this current state
-	- Use a variable equal to the recursive call of the next step and check the value of that variable
-	- If the recursive call succeeds, report the success to the lower stack frame (return true)
-	- If the recursive call failed, back-out the choice and restore the
-		current state from the beginning of the loop
-3. Report failure (return false)
+Typically, recursive backtracking algorithms are "exhaustive": brute-force approach.  
+
+### Short-Circuit Backtracking Algorithm
+An algorithm may need to be short-circuited once an answer is found. These algorithms do not need to continue iterating through
+every possible choice, and it can just return the success case once it finds a solution to the step.  
+Ex: The 8-Queens Problem
+```java
+public static boolean recursiveMethod(List<Integer> list, step) {
+	if(found a solution at this step) {
+		return true;
+	} else {
+		for(every possible choice in the current step) {
+			// make the next step
+			step++;
+			int result = recursiveMethod(list, step);
+			
+			// recursive call done, check the result
+			if(result is a success) {
+				return true;
+			}
+			// restore the state to the beginning of the loop (backtrack the step)
+			step--;
+		}
+	}
+	// at this point if the program never returned a value, then this step was a failure
+	return false;
+}
+```
+### Things To Understand About Short-Circuit Backtracking Algorithms
+- Recursive calls will only pop a stack frame once it either succeeds or fails
+- If it succeeds, then we consider the step a success and go to the next step
+- If it fails, we go back a step and try another possible choice
+
+Typically, you can identify a short-circuit backtracking algorithm if the step does not need to be checked among the other possible choices once the program finds a solution.
+
+### Non-Short Circuit Backtracking Algorithm
+Sometimes an algorithm cannot be short-circuited because the possible choices may need to be compared or used among each other even
+after a recursive call to the next step. In these scenarios, the program typically doesn't return a value until the very end of the method.  
+Ex: The Minimum Difference among a Team Array (from Programming Assignment 6)
+```java
+public static int recursiveMethod(List<Integer> list, step) {
+	if(found a solution at this step) {
+		return bestResult;
+	} else {
+		int bestResult = initial/base value;
+		for(every possible choice in the current step) {
+			// make the next step
+			step++;
+			int result = recursiveMethod(list, step);
+			
+			// recursive call done, check the result
+			if(result is a success) {
+				// update the best result
+				bestResult = result;
+			}
+			// restore the state to the beginning of the loop (backtrack the step)
+			step--;
+		}
+	}
+	// at this point if the program is done getting the best result, so return the best result (end case)
+	return bestResult;
+}
+```
+### Things To Understand About Non-Short Circuit Backtracking Algorithms
+- Recursive calls will only pop a stack frame once it reaches base case or end case
+- For either case, we compare it among the previous step's recursive call anyway
+
+Typically, you can identify a non-short circuit backtracking algorithm if the step needs to be checked among the other possible choices even if the program found a potential solution.
