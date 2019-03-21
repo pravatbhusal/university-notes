@@ -40,6 +40,39 @@ public class RecursiveBacktracking {
 		}
 	}
 
+	/*
+	 * Write a method countDecimal that accepts an integer n as a parameter and that
+	 * prints all decimal (base-10) numbers that have n digits in ascending order,
+	 * printing each value on a separate line. All n digits should be shown for all
+	 * numbers, including leading zeros if necessary. You may assume that n is non-negative.
+	 * If n is 0, a blank line of output should be produced. You may use a loop to remove
+	 * redundancy within a single digit's values of 0-9, but you must still implement the
+	 * overall algorithm recursively.
+	 */
+	public static void countDecimal(int placeValues) {
+		helperCountDecimal(placeValues, "");
+	}
+
+	private static void helperCountDecimal(int placeValues, String number) {
+		if(number.length() == placeValues) {
+			// base case where the number's length has the proper amount of place values
+			System.out.println(number);
+		} else {
+			/*
+			 	So what's the for loop (iteration) for?
+	            The for loop is to try every combination of digits from 0 to 9 to the current place value.
+
+	            So what's the recursion for?
+	            The recursion is needed to go to the next step (next place value) using the for loop's digit.
+			 */
+			final int DIGITS = 10;
+			for(int digit = 0; digit < DIGITS; digit++) {
+				// add this digit for the next step
+				helperCountDecimal(placeValues, number + digit);
+			}
+		}
+	}
+
 	/* In this problem, the scenario we are evaluating is the following: You're 
 	 * standing at the base of a staircase and are heading to the top. A small 
 	 * stride will move up one stair, and a large stride advances two. You want to 
