@@ -53,15 +53,17 @@ Ex: The 8-Queens Problem
 ```java
 public static boolean recursiveMethod(List<Integer> list, step) {
 	if(found a solution at this step) {
+		// the program is finished! pop all stacks and return true!
 		return true;
 	} else {
-		for(every possible choice in the current step) {
+		for(every possible choice or direction in the current step) {
 			// make the next step
 			step++;
 			int result = recursiveMethod(list, step);
 			
 			// recursive call done, check the result
 			if(result is a success) {
+				// tell the other calls we're finished! pop all stacks and return true!
 				return true;
 			}
 			// restore the state to the beginning of the loop (backtrack the step)
@@ -89,7 +91,7 @@ public static int recursiveMethod(List<Integer> list, step) {
 		return bestResult;
 	} else {
 		int bestResult = initial/base value;
-		for(every possible choice in the current step) {
+		for(every possible choice or direction in the current step) {
 			// make the next step
 			step++;
 			int result = recursiveMethod(list, step);
