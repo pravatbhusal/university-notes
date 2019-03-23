@@ -43,6 +43,7 @@ A method that calls itself with different parameters.
 # Recursive Backtracking
 Recursively checks if a solution is correct, if not, then it backtracks to its previous steps and tries other possibilities until the entire algorithm has been solved.
 - Ex: A Sudoku algorithm that brute-forces through every possibilities until the entire matrix has been solved.  
+<img src="images/sudoku_recursive_backtracking.gif" alt="Sudoku Recursive Backtracking" width="25%" height="25%">
 
 Typically, recursive backtracking algorithms are "exhaustive": brute-force approach.  
 
