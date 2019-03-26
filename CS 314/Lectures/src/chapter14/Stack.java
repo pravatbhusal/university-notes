@@ -34,7 +34,7 @@ public class Stack<E> {
 
 	/*
 	 * pre: other != null
-	 * post: return if the other's Stack elements equals this Stack's
+	 * post: return if the other's Stack elements equals this Stack's, O(N)
 	 */
 	public boolean equals(Object other) {
 		if(other instanceof Stack) {
@@ -70,7 +70,7 @@ public class Stack<E> {
 		return false;
 	}
 
-	// push the items from doPushStack parameter to the getPushStack parameter
+	// push the items from doPushStack parameter to the getPushStack parameter, O(N)
 	private void pushInto(Stack<E> doPushStack, Stack<E> getPushStack) {
 		// iterate through the entire push stack
 		while(!doPushStack.isEmpty()) {
@@ -79,7 +79,11 @@ public class Stack<E> {
 		}
 	}
 
-	// print the stack in reverse order
+	/*
+	 * print the Stack in reverse order using Recursion. O(N) time and space
+	 * Note: Even doing this iteratively with a helper Stack container
+	 * 		would still be O(N) space since recursion takes O(N) stack space.
+	 */
 	public void printReverseOrder() {
 		while(!isEmpty()) {
 			// before the recursive call, pop the Stack item and store it
