@@ -95,7 +95,10 @@ public class Stack<E> {
 			// finished recursive call, print from bottom of Stack to top
 
 			// print the value, then restore the state
-			System.out.print(value + " ");
+			StringBuilder valueBuilder = new StringBuilder();
+			valueBuilder.append(value);
+			valueBuilder.append(" ");
+			System.out.print(valueBuilder.toString());
 			push(value);
 		}
 		// base case where the Stack is empty, initiate finished recursive calls
