@@ -21,3 +21,15 @@ The Big O time efficiency of Radix Sort is O(N * log(max))
 - max = # of digits of the greatest (maximum) number
 - It's logarithmic because logarithms can help us obtain the # of digits
 	- Ex: log10(12345) = 4.09149, so get the first digit of any logarithm answer then add it by one and you get the number of digits in a number. For this example, 4 is the first digit, add it by one and it becomes 5. Therefore, the number 12345 has 5 digits.
+
+# Infix vs Postfix Expressions
+### Infix Expressions
+We've been using infix expressions since elementary school mathematics.
+- Mathematical operations go in-between numbers
+- Ex: ```3 + 5 * 7 + 10```
+
+### Postfix Expressions
+Mathematical operations go after the numbers.
+- Ex: ```32 * 1 +``` postfix equals to the infix ```(3 * 2) + 1```
+- Ex: ```378 * +``` postfix equals to the infix ```(3 + 7) * 8```
+	- The order of operations are preserved since the * appears immediately after the 7 and the 8, denoting that * has precedence, with + coming after
