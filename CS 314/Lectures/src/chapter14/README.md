@@ -31,5 +31,7 @@ We've been using infix expressions since elementary school mathematics.
 ### Postfix Expressions
 Mathematical operations go after the numbers.
 - Ex: ```32 * 1 +``` postfix equals to the infix ```(3 * 2) + 1```
-- Ex: ```378 * +``` postfix equals to the infix ```(3 + 7) * 8```
+- Ex: ```378 * +``` postfix equals to the infix ```3 + (7 * 8)```
 	- The order of operations are preserved since the * appears immediately after the 7 and the 8, denoting that * has precedence, with + coming after
+- Ex: ```A B C * + D +``` postfix equals to the infix ```(A + (B * C)) + D
+- Ex: ```A B + C D + *``` postfix equals to the infix ```(A + B) * (C + D)```
