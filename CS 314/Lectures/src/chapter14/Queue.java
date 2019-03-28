@@ -1,3 +1,7 @@
+package chapter14;
+
+import java.util.Arrays;
+
 public class Queue<E> {
 
 	// Array container, best implementation for "cyclic" wrap-around
@@ -42,25 +46,31 @@ public class Queue<E> {
 			final int DOUBLE = 2;
 			resize((size * DOUBLE) + 1);
 		}
-		/* cyclic-wrap around the last element if
-			equal to the container's length */
-		if(last == container.length) {
-			last = -1;
-		}
 		// add the item and open-up the next last index
 		last++;
 		container[last] = item;
 		size++;
+
+		/* cyclic-wrap around the last index if
+ 			equal to the container's length */
+		if(last == container.length) {
+			last = -1;
+		}
 	}
 
 	// remove and return the first item of the queue
 	public E dequeue() {
 		E oldFirstItem = front();
-
 		// null-out the first item and set the new first item index
 		container[first] = null;
 		first++;
 		size--;
+
+		/* cyclic-wrap around the first index if
+	 		equal to the container's length */
+		if(first == container.length) {
+			first = 0;
+		}
 		return oldFirstItem;
 	}
 
@@ -70,9 +80,11 @@ public class Queue<E> {
 
 		// iterate through each item within the queue
 		int currentItem = first;
+		int newContainerIndex = 0;
 		while(currentItem != last) {
-			newContainer[currentItem] = container[currentItem];
+			newContainer[newContainerIndex] = container[currentItem];
 			currentItem++;
+			newContainerIndex++;
 
 			// cyclic wrap-around the queue
 			if(currentItem == container.length) {
@@ -80,7 +92,11 @@ public class Queue<E> {
 			}
 		}
 		// fence-post solution, add the last element as well
-		newContainer[last] = container[last];
+		newContainer[newContainerIndex] = container[last];
+
+		// reset the first and last indexes
+		first = 0;
+		last = container.length - 1;
 
 		// set the queue's container to the new container
 		container = newContainer;
