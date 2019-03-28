@@ -1,7 +1,5 @@
 package chapter14;
 
-import java.util.Arrays;
-
 public class Queue<E> {
 
 	// Array container, best implementation for "cyclic" wrap-around
