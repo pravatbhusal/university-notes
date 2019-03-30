@@ -13,6 +13,8 @@
   - Level = Depth + 1
 - Height: The path length from an internal Node to its furthest leaf Node
 
+<img src="images/regular_tree.png" height="35%" width="35%"></img>
+
 # Binary Tree
 Each Node has no more than two children.
 - The "possible" children are referred to as the left and right child
@@ -20,27 +22,34 @@ Each Node has no more than two children.
 ### Full Binary Tree
 Each Node has exactly 2 or 0 children.
 
+<img src="images/full_binary_tree.png" height="35%" width="35%"></img>
+
 ### Complete Binary Tree
 Every level, except the deepest depth, is completely filled. At the deepest depth, all Nodes are to the far left.
 - Filled in from left to right, top to bottom
 - The height of a complete binary tree with N Nodes is O(log2(N))
   - Ex: Let's say there 8 Nodes for a complete binary tree, then log2(8) = height of 3
   
+<img src="images/complete_binary_tree.png" height="35%" width="35%"></img>
+  
 ### Perfect Binary Tree
 All interior Nodes have two children, and all leaf Nodes have the same depth.
+- Has 2^(n+1) - 1 Nodes where n is the height of the tree
 
 # Binary Tree Traversal
+<img src="images/binary_tree_traversal.png" height="35%" width="35%"></img>
+
 ### Level-order
-Traverse the tree through left-to-right, top-to-bottom Nodes
+Starting from the root of a tree, process all nodes at the same depth from left to right, then proceed to the nodes at the next depth
 
 ### Pre-Order
-While traversing through the tree, get the left-intersected Node
+Process the root, then process all subtrees (left to right)
 
 ### In-Order
-While traversing through the tree, get the bottom-intersected Node
+Process the left sub tree, process the oot, process the right sub tree
 
 ### Post-Order
-While traversing through the tree, get the right-intersected Node
+Process the left sub tree, process the right sub tree, then process the root
 
 ### Program for Printing Pre-Order, In-Order, and Post-Order Traversal
 ```java
