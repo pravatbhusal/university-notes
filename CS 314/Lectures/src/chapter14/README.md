@@ -9,7 +9,7 @@ A simple data structure that represents a "line" or queue of items.
 - Every method within the Queue is O(1) except enqueue() worst-case is O(N) due to needing to resize the Queue's container
 
 ## Application of Queues
-### Radix Sort (Non-Inplace, Non-Comparision)
+### Radix Sort (Stable, Non-Inplace, Non-Comparision)
 Uses an Array of Queues based on the number's base.
 - For example, base 10 integers would mean there's an Array container of 10 Queues
 
