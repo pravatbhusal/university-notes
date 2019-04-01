@@ -63,3 +63,13 @@ public static void traversal(BNode node) {
    }
 }
 ```
+# Binary Search Tree (BST)
+A binary tree in which every node's left subtree holds values less than the node's value, and every right subtree holds values greater than the node's value.
+
+<img src="images/binary_search_tree.png" height="55%" width="55%"></img>
+
+### In-order Traversal of BST
+When doing an in-order traversal of a BST, the traversal processes the tree in-order from least to greatest.
+
+### Adding into a BST
+If the Node's value being added is already within the Tree, then it does not add the duplicate (acts like a Set).
