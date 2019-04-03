@@ -121,18 +121,13 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	// return the maximum data from a Node sub-tree
 	private E getMaxValue(BNode<E> node) {
 		BNode<E> currentNode = node;
-		E data = null;
 
 		// iterate the right-subtree from this Node to get the maximum value
-		while(currentNode != null) {
-			if(currentNode.rightChild == null) {
-				// the base-case, the next right child Node is null so set the value
-				data = currentNode.data;
-			}
+		while(node.rightChild != null) {
 			// traverse right (greater value)
 			currentNode = currentNode.rightChild;
 		}
-		return data;
+		return node.data;
 	}
 
 	// print the pre-order traversal of the tree
