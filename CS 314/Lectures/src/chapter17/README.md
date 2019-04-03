@@ -49,8 +49,7 @@ Process the root, then process all subtrees (left to right)
 ### In-Order
 Process the left sub tree, process the root, process the right sub tree
 - Only process whenever the sailing meets the Node from the bottom
-- Make sure the Nodes are created with a 45 degree angle, but if the Node angles are clunky, then just process each Node when traversing down the Tree
-	- Unless if its a parent Node with two children, process that after its left-child
+- Make sure the child Nodes are drawn with a 45 degree angle from their parent Node
 
 ### Post-Order
 Process the left sub tree, process the right sub tree, then process the root
