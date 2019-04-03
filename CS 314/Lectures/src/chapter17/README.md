@@ -33,7 +33,7 @@ Every level, except the deepest depth, is completely filled. At the deepest dept
 <img src="images/complete_binary_tree.png" height="35%" width="35%"></img>
   
 ### Perfect Binary Tree
-All interior Nodes have two children, and all leaf Nodes have the same depth.
+All interior Nodes have two children, and all leaf Nodes at the same depth (very bottom).
 - Has 2^(n+1) - 1 Nodes where n is the height of the tree
 
 # Binary Tree Traversal
@@ -44,12 +44,17 @@ Starting from the root of a tree, process all nodes at the same depth from left 
 
 ### Pre-Order
 Process the root, then process all subtrees (left to right)
+- Only process when the sailing meets the Node from the left
 
 ### In-Order
-Process the left sub tree, process the oot, process the right sub tree
+Process the left sub tree, process the root, process the right sub tree
+- Only process whenever the sailing meets the Node from the bottom
+- Make sure the Nodes are created with a 45 degree angle, but if the Node angles are clunky, then just process each Node when traversing down the Tree
+	- Unless if its a parent Node with two children, process that after its left-child
 
 ### Post-Order
 Process the left sub tree, process the right sub tree, then process the root
+- Only process whenever the sailing meets the Node from the right
 
 ### Program for Printing Pre-Order, In-Order, and Post-Order Traversal
 ```java
@@ -73,3 +78,12 @@ When doing an in-order traversal of a BST, the traversal processes the tree in-o
 
 ### Adding into a BST
 If the Node's value being added is already within the Tree, then it does not add the duplicate (acts like a Set).
+- Best-case: O(log2(N)) <- Whenever the Tree is complete, so height is O(log2(N))
+- Worst-case: O(N) <- Whenever the Tree is linear, so must traverse through entire tree
+
+### Removing from a BST
+1. If removing a leaf, null it out.  
+2. If removing an internal Node that has only one child, make the parent Node link to its one child.  
+3. If it's an internal Node with 2 children:
+	- Replace the Node with the max Node on its left-subtree (the very-right Node of left-subtree)
+	- Recursively replace until the Node is replaced with its maximum left-subtree Node
