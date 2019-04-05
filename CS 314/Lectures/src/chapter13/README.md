@@ -56,3 +56,23 @@ Utilizes high (last index), low (first index), and middle (index of half)
 1. Split the list into sub-lists until each sub-list contains 0 or 1 elements.  
 2. Sort the smaller lists, then merge them together.  
 - The division and merge portion takes log2(N) times, and the sorting takes N times; therefore, it takes O(Nlog(N)) time for all cases
+
+# Break-Even Analysis
+
+### Example with MergeSort
+You have 1 million items, how many searches do you need to determine if the data is worth searching?
+- xSearches * (1_000_000 / 2) = N*log2(N) = 1_000_000 * log2(1_000_000) = 20_000_000
+- Now, xSearches = 20_000_000 / 500_000 = 40 searches
+
+### Example of Efficiency Analysis
+You have an array with 128,000 distinct elements in unsorted order. You expect to perform 1000
+searches on the array before the data changes.
+- Is performing the searches without sorting more efficient or sort the data then search it?  
+
+The answer is: sort the data and search it. Here's the break-even analysis:
+- Search without sorting
+	- xSearches * (N / 2) = 1000 * 64_000 = 64000000
+- Sort then Search
+	- (N * log2(N)) + (log2(N) * xSearches) = (128_000 * log2(128_000)) + (log2(128_000) * 1000) = 2193000
+- Result
+	- 2193000 > 64000000, so sorting then searching is more efficient
