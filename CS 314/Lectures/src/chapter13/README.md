@@ -24,7 +24,7 @@ Stable algorithms may matter for certain Object-types.
 
 ### Binary Search
 1. If items are sorted, divide and conquer the list until found target.  
-- O(log(N)) time, best-case is O(1) when the target is the middle element
+- O(log2(N)) time, best-case is O(1) when the target is the middle element
 
 Utilizes high (last index), low (first index), and middle (index of half)
 - low = 0 at base, then low = mid + 1 if searching the right-side
@@ -65,8 +65,11 @@ You have 1 million items, how many searches do you need to determine if the data
 - Now, xSearches = 20_000_000 / 500_000 = 40 searches
 
 ### Example of Expected Time Analysis
-A method uses the binary search algorithm on an array of ints. It takes 10 seconds for the method to complete 10,000 searches on an array with 1,000,000 elements. What is the expected time to complete 50,000 searches on an array with 2,000,000 elements. The arrays are both are already sorted.
-- ```10_000 * log2(1_000_000) / 50_000 * log2(2_000_000) = 10 / x``` => ```20x = 1050``` => ```x = 52.5```
+A method uses the binary search algorithm on an array of ints. It takes 10 seconds for the method to complete 10,000 searches on an array with 1,000,000 elements. What is the expected time to complete 50,000 searches on an array with 2,000,000 elements. The arrays are both are already sorted.   
+
+First of all, we know log2(1_000) = 10, and log2(1_000_000) = 20, so log2(2_000_000) = 21 because 2^21 = 2_000_000.   
+Therefore, since binary search is log2(N) time, we can use algebra to determine the time:   
+- ```10_000 * log2(1_000_000) / 50_000 * log2(2_000_000) = 10 / x``` => ```20x = 1050``` => ```x = 52.5s```
 
 ### Example of Efficiency Analysis
 You have an array with 128,000 distinct elements in unsorted order. You expect to perform 1000
