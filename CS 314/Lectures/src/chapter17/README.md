@@ -76,9 +76,13 @@ A binary tree in which every node's left subtree holds values less than the node
 When doing an in-order traversal of a BST, the traversal processes the tree in-order from least to greatest.
 
 ### Adding into a BST
-If the Node's value being added is already within the Tree, then it does not add the duplicate (acts like a Set).
-- Best-case: O(log2(N)) <- Whenever the Tree is complete, so height is O(log2(N))
+If the Node's value being added is already within the Tree, then it does not add the duplicate (acts like a Set).   
+
+The naive add algorithm: Whenever adding a new element into the Tree, it adds based on comparing the value of a Node's data. If the element is less than the Node's data, then it traverses left, if greater than then it traverses right. The base-case is when replacing a null-link, thus adding onto a leaf Node's link.
+- Best and Average-case: O(log2(N)) <- Whenever the Tree is complete, so height is O(log2(N))
+	- Occurs whenever adding elements in random, distinct order
 - Worst-case: O(N) <- Whenever the Tree is linear, so must traverse through entire tree
+	- Occurs whenever adding elements in ascending or descending order
 
 ### Removing from a BST
 1. If removing a leaf, null it out.  
