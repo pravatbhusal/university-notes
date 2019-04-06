@@ -35,3 +35,10 @@ Mathematical operations go after the numbers.
 	- The order of operations are preserved since the * appears immediately after the 7 and the 8, denoting that * has precedence, with + coming after
 - Ex: ```A B C * + D +``` postfix equals to the infix ```(A + (B * C)) + D
 - Ex: ```A B + C D + *``` postfix equals to the infix ```(A + B) * (C + D)```
+
+###### Postfix Expressions Process
+Let's do an example for ```20 3 2 + 2 * / 4 +```:   
+
+```20 3 2 + 2 * / 4 +``` = ```20 (3 + 2) 2 * / 4 +``` = ```20 [(3 + 2) * 2] / 4 +``` = ```20 / [(3 + 2) * 2] 4 +``` = ```[20 / [(3 + 2) * 2]] + 4``` = ```2 + 4 = 6```
+
+How it works is that you go left-to-right on each operator and place it in-between the left two numbers from that operator. Keep doing this and create paranthesis that separate the mathematical expressions from the operators until it's evaluated.
