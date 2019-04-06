@@ -66,7 +66,7 @@ You have 1 million items, how many searches do you need to determine if the data
 
 ### Example of Expected Time Analysis
 A method uses the binary search algorithm on an array of ints. It takes 10 seconds for the method to complete 10,000 searches on an array with 1,000,000 elements. What is the expected time to complete 50,000 searches on an array with 2,000,000 elements. The arrays are both are already sorted.
-- 10_000 * log2(1_000_000) / 50_000 * log2(2_000_000) = 10 / x => 20x = 1050 => x = 52.5 
+- ```10_000 * log2(1_000_000) / 50_000 * log2(2_000_000) = 10 / x``` => ```20x = 1050``` => ```x = 52.5```
 
 ### Example of Efficiency Analysis
 You have an array with 128,000 distinct elements in unsorted order. You expect to perform 1000
