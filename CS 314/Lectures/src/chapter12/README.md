@@ -52,7 +52,7 @@ public int mystery(int x) {
 	if(x < 0) {
 		return 1;
 	}
-		return 2 + mystery(x - 1) + mystery(x - 1);
+	return 2 + mystery(x - 1) + mystery(x - 1);
 }
 ```
 If x = 20 and it takes 1 second to complete, then what's the time to complete when x = 30?   
