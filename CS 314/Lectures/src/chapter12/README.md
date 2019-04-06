@@ -44,6 +44,8 @@ A method that calls itself with different parameters.
 ### Multiple Recursion Time Complexity Example and Explanation
 We know for 1 recursive call the time and space complexity becomes O(N). However, for 2 recursive calls, the time and space complexity becomes 2^N. If there were 3 calls, it's O(3^N), for 4 calls it's O(4^N), and etc.   
 
+Why is this true? Because when there's multiple recursive calls each function calls itself N times.   
+
 Let's get an example question:   
 ```java
 public int mystery(int x) {
