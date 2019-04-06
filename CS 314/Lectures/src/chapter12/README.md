@@ -35,10 +35,28 @@ A method that calls itself with different parameters.
 	- Know where you're going (what is your goal?)
 3. Break the journey down to smaller steps (the recursive part)  
 	- This is where you actually call the recursive method
-
+	
+# Recursion Time and Space Complexity
 ### Space and Time Trade-off for Recursion
 - Takes O(N) space AND time for a recursive-call that calls N times
 	- Because it takes N stack-spaces to finish the recursion
+
+### Multiple Recursion Time Complexity Example and Explanation
+We know for 1 recursive call the time and space complexity becomes O(N). However, for 2 recursive calls, the time and space complexity becomes 2^N. If there were 3 calls, it's O(3^N), for 4 calls it's O(4^N), and etc.   
+
+Let's get an example question:   
+```java
+public int mystery(int x) {
+	if(x < 0) {
+		return 1;
+	}
+		return 2 + mystery(x - 1) + mystery(x - 1);
+}
+```
+If x = 20 and it takes 1 second to complete, then what's the time to complete when x = 30?   
+- This particular question uses 2 recursive calls, so the time and space complexity is O(2^N).   
+
+Therefore, ```2^20 / 2^30 = 1 / x``` = ```2^10 = 1 / x``` = ```x = ~1000 seconds``` the exact answer is 1024 seconds.
 	
 # Recursive Backtracking
 Recursively checks if a solution is correct, if not, then it backtracks to its previous steps and tries other possibilities until the entire algorithm has been solved.
