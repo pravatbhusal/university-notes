@@ -50,7 +50,7 @@ Utilizes high (last index), low (first index), and middle (index of half)
 2. Partition the list, all elements to the left of the pivot is less than the pivot, and all the elements to the right of the pivot is greater than the pivot.  
 3. Recursively do steps 1 and 2 on smaller and smaller portions of the left and right-sides of the list until the program reaches the base-case: when the list length is 0 or 1.
 - The division portion takes log2(N) times, and the partitioning takes N times; therefore, it takes O(Nlog(N)) time for best and worst-case
-- However, worst-case is O(N^2) if the starting pivot becomes the greatest or smallest element because the dividing is no longer log(N) and becomes N
+- However, worst-case is O(N^2) if the starting pivot becomes the greatest or smallest element because the dividing is no longer log(N) and becomes N. It can also become O(N^2) is the list is already sorted.
 
 ### Merge Sort (Stable)
 1. Split the list into sub-lists until each sub-list contains 0 or 1 elements.  
