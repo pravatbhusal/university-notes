@@ -91,7 +91,8 @@ public static boolean recursiveMethod(List<Integer> list, step) {
 			step--;
 		}
 	}
-	// at this point if the program never returned a value, then this step was a failure
+	/* at this point if the program never returned
+		a value, then this step was a failure */
 	return false;
 }
 ```
@@ -126,7 +127,8 @@ public static int recursiveMethod(List<Integer> list, step) {
 			step--;
 		}
 	}
-	// at this point if the program is done getting the best result, so return the best result (end case)
+	/* at this point if the program is done getting the best
+		result, so return the best result (end case) */
 	return bestResult;
 }
 ```
@@ -145,7 +147,7 @@ public static boolean recursiveMethod(List<Integer> list, optionIndex, Options[]
 		// the program is finished! pop all stacks and return true!
 		return true;
 	} else {
-		Option currentOption = myOptions[optionIndex]
+		Options currentOption = myOptions[optionIndex]
 		for(every direction for this option) {
 			// make the next step
 			doStep(currentOption);
@@ -160,7 +162,8 @@ public static boolean recursiveMethod(List<Integer> list, optionIndex, Options[]
 			undoStep(currentOption);
 		}
 	}
-	// this step resulted in a failure, let's try to go to the next option and act like we never took this one
+	/* this step resulted in a failure, let's try to go to the next
+		option and act like we never took this one */
 	return recursiveMethod(list, optionindex + 1, myOptions);
 }
 ```
