@@ -80,10 +80,10 @@ public static boolean recursiveMethod(List<Integer> list, step) {
 		for(every possible choice or direction in the current step) {
 			// make the next step
 			step++;
-			int result = recursiveMethod(list, step);
+			boolean result = recursiveMethod(list, step);
 			
 			// recursive call done, check the result
-			if(result is a success) {
+			if(result) {
 				// tell the other calls we're finished! pop all stacks and return true!
 				return true;
 			}
@@ -135,3 +135,35 @@ public static int recursiveMethod(List<Integer> list, step) {
 - For either case, we compare it among the previous step's recursive call anyway
 
 Typically, you can identify a non-short circuit backtracking algorithm if the step needs to be checked among the other possible choices even if the program found a potential solution.
+
+### Skipping Options Backtracking Algorithms
+Sometimes an algorithm needs to skip an option because it might not be needed to solve the problem.
+Ex: Filling a 2D Array of Rectangles with a list of Rectangle dimensions (Question 6, Exam 2 Fall 2018)
+```java
+public static boolean recursiveMethod(List<Integer> list, optionIndex, Options[] myOptions) {
+	if(found a solution at this step) {
+		// the program is finished! pop all stacks and return true!
+		return true;
+	} else {
+		Option currentOption = myOptions[optionIndex]
+		for(every direction for this option) {
+			// make the next step
+			doStep(currentOption);
+			boolean result = recursiveMethod(list, optionindex + 1, myOptions);
+			
+			// recursive call done, check the result
+			if(result is a success) {
+				// tell the other calls we're finished! pop all stacks and return true!
+				return true;
+			}
+			// restore the state to the beginning of the loop (backtrack the step)
+			undoStep(currentOption);
+		}
+	}
+	// this step resulted in a failure, let's try to go to the next option and act like we never took this one
+	return recursiveMethod(list, optionindex + 1, myOptions);
+}
+```
+### Things To Understand About Skipping Steps Backtracking Algorithms
+- The only difference here is that in the fail-case, instead of returning a typical fail case it acts like the option never existed and goes to the option after it anyway
+- Could be used when having an Array of options in which all the options don't need to be used
