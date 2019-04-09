@@ -6,7 +6,7 @@ A simple data structure that represents a stack of items.
 # Queue
 A simple data structure that represents a "line" or queue of items.
 - Uses a native Array container to better represent a "cyclic-wrap-around" of items within the Queue
-	- Also it's preferred over an ArrayList because enqueue and dequeue from the front would've took O(N) time
+	- Also, it's preferred over an ArrayList because enqueue and dequeue from the front would've took O(N) time if using an ArrayList instead of an Array
 - Every method within the Queue is O(1) except enqueue() worst-case is O(N) due to needing to resize the Queue's container
 
 ## Application of Queues
