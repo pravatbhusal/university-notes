@@ -60,26 +60,35 @@ Utilizes high (last index), low (first index), and middle (index of half)
 # Break-Even Analysis
 
 ### Example with MergeSort
-You have 1 million items, how many searches do you need to determine if the data is worth searching?
-- xSearches * (1_000_000 / 2) = N*log2(N) = 1_000_000 * log2(1_000_000) = 20_000_000
-- Now, xSearches = 20_000_000 / 500_000 = 40 searches
+You have 1,000,000 items that you will be searching. How many searches need to be performed before the data is changed to make it worthwhile (more efficient) to sort the data before searching?
+
+Now, if we just performed a linear search it would take worst-case O(N) time, but consider O(N / 2) average time.  
+
+Instead, if we performed a mergesort it would take O(Nlog2N) average time plus the time to binary search which is O(log2N).
+
+If we compare the times to linear search versus sorting then binary searching for the two:  
+- xSearches * 1_000_000 / 2 = 1_000_000 * log2(1_000_000) + xSearches*log2(1_000_000) = 20_000_000
+- If we round up, xSearches would approximately equal 40 searches to be more worthwhile to sort then search.
+
+Therefore, more than 40 searches would make sorting the data then binary search more worthwhile, and less than 40 searches would make linear search more worthwhile. If there were 40 searches, both approaches are about equal in terms of efficiency.
+- We know this is true because binary search works great with more searches because it logarithmically increases efficiency
+- Note: We could also say linear search would take O(N) time and not divide by 2 if the element was in worst-case, which would mean the answer becomes 20 searches
 
 ### Example of Expected Time Analysis
 A method uses the binary search algorithm on an array of ints. It takes 10 seconds for the method to complete 10,000 searches on an array with 1,000,000 elements. What is the expected time to complete 50,000 searches on an array with 2,000,000 elements. The arrays are both are already sorted.   
 
 First of all, we know log2(1_000) = 10, and log2(1_000_000) = 20, so log2(2_000_000) = 21 because 2^21 = 2_000_000.   
-Therefore, since binary search is log2(N) time, we can use algebra to determine the time:   
+Therefore, since binary search is log2(N) time, we can use algebra to compare the time to search:   
 - ```10_000 * log2(1_000_000) / 50_000 * log2(2_000_000) = 10 / x``` => ```20x = 1050``` => ```x = 52.5s```
 
 ### Example of Efficiency Analysis
 You have an array with 128,000 distinct elements in unsorted order. You expect to perform 1000
-searches on the array before the data changes.
-- Is performing the searches without sorting more efficient or sort the data then search it?  
+searches on the array before the data changes. Is performing the searches without sorting more efficient or sort the data then search it?  
 
 The answer is: sort the data and search it. Here's the break-even analysis:
-- Search without sorting
-	- xSearches * (N / 2) = 1000 * 64_000 = 64000000
-- Sort then Search
-	- (N * log2(N)) + (log2(N) * xSearches) = (128_000 * log2(128_000)) + (log2(128_000) * 1000) = 2193000
+- Linear Search (without sorting):
+	- 1000 * 128_000 / 2 = 64000000
+- Merge Sorting then Binary Searching:
+	- 128_000 * log2(128_000) + log2(128_000) * 1000 = 2193000
 - Result
-	- 2193000 > 64000000, so sorting then searching is more efficient
+	- 64000000 > 2193000, so sorting then searching is more efficient
