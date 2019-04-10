@@ -67,7 +67,7 @@ Now, if we just performed a linear search it would take worst-case O(N) time, bu
 Instead, if we performed a mergesort it would take O(Nlog2N) average time plus the time to binary search which is O(log2N).
 
 If we compare the times to linear search versus sorting then binary searching for the two:  
-- xSearches * 1_000_000 / 2 = 1_000_000 * log2(1_000_000) + xSearches*log2(1_000_000) = 20_000_000
+- ```xSearches * 1_000_000 / 2``` = ```1_000_000 * log2(1_000_000) + xSearches*log2(1_000_000)``` = ```20_000_000```
 - If we round up, xSearches would approximately equal 40 searches to be more worthwhile to sort then search.
 
 Therefore, more than 40 searches would make sorting the data then binary search more worthwhile, and less than 40 searches would make linear search more worthwhile. If there were 40 searches, both approaches are about equal in terms of efficiency.
@@ -79,7 +79,7 @@ A method uses the binary search algorithm on an array of ints. It takes 10 secon
 
 First of all, we know log2(1_000) = 10, and log2(1_000_000) = 20, so log2(2_000_000) = 21 because 2^21 = 2_000_000.   
 Therefore, since binary search is log2(N) time, we can use algebra to compare the time to search:   
-- ```10_000 * log2(1_000_000) / 50_000 * log2(2_000_000) = 10 / x``` => ```20x = 1050``` => ```x = 52.5s```
+- ```10_000 * log2(1_000_000) / 50_000 * log2(2_000_000)``` = ```10 / x``` so ```20x = 1050``` so ```x = 52.5s```
 
 ### Example of Efficiency Analysis
 You have an array with 128,000 distinct elements in unsorted order. You expect to perform 1000
@@ -87,8 +87,8 @@ searches on the array before the data changes. Is performing the searches withou
 
 The answer is: sort the data and search it. Here's the break-even analysis:
 - Linear Search (without sorting):
-	- 1000 * 128_000 / 2 = 64000000
+	- ```1000 * 128_000 / 2 = 64000000```
 - Merge Sorting then Binary Searching:
-	- 128_000 * log2(128_000) + log2(128_000) * 1000 = 2193000
+	- ```128_000 * log2(128_000) + log2(128_000) * 1000 = 2193000```
 - Result
-	- 64000000 > 2193000, so sorting then searching is more efficient
+	- ```64000000 > 2193000```, so sorting then searching is more efficient
