@@ -68,7 +68,7 @@ Instead, if we performed a mergesort it would take O(Nlog2N) average time plus t
 
 If we compare the times to linear search versus sorting then binary searching for the two:  
 - ```xSearches * 1_000_000 / 2``` = ```1_000_000 * log2(1_000_000) + xSearches*log2(1_000_000)``` = ```20_000_000```
-- If we round up, xSearches would approximately equal 40 searches to be more worthwhile to sort then search.
+- If we round up, xSearches would approximately equal 40 searches.
 
 Therefore, more than 40 searches would make sorting the data then binary search more worthwhile, and less than 40 searches would make linear search more worthwhile. If there were 40 searches, both approaches are about equal in terms of efficiency.
 - We know this is true because binary search works great with more searches because it logarithmically increases efficiency
