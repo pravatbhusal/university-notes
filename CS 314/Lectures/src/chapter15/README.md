@@ -37,13 +37,14 @@ list is empty and make a fallacy that an algorithm is O(1); we can only assume t
   - O(N) all cases, due to deep-copying
   - Tip: resize(int newCapacity) where newCapacity = oldCapacity + constant would take O(N) average-case for the add algorithm due to needing to resize in constant time. Therefore, it's advised to do newCapacity = oldCapacity * 2 + 1 so that add() becomes O(1) average-case since it spreads out the cost of resizing enough.
 - insert
-  - O(N) average and worst-case
+  - O(N) worst-case, and F(N) = 2N due to resizing
+  - O(N) average-case
   - O(1) best-case, when appending to the end of the list no need to fix positions
 - insertAll
   - O(N^2) worst-case and average-case, due to needing to iterate the merge list and inserting
   - O(N) best-case, if the position parameter was at the very end of the list insert would be O(1)
 - add
-  - O(1) amortized worst-case, not O(N), because resizing an ArrayList is very infrequent if resize(2*oldCapacity + 1)
+  - O(N) worst-case, and F(N) = 2N due to resizing
   - O(1) average and best-case, when appending at the end of the list
 - remove
   - O(N) worst-case and average-case
