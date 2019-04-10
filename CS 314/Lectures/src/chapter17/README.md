@@ -27,7 +27,7 @@ Each Node has exactly 2 or 0 children.
 ### Complete Binary Tree
 Every level, except the deepest depth, is completely filled. At the deepest depth, all Nodes are to the far left.
 - Filled in from left to right, top to bottom
-- The height of a complete binary tree with N Nodes is O(log2(N))
+- The height of a complete binary tree with N Nodes is log2(N)
   - Ex: Let's say there 8 Nodes for a complete binary tree, then log2(8) = height of 3
   
 <img src="images/complete_binary_tree.png" height="35%" width="35%"></img>
