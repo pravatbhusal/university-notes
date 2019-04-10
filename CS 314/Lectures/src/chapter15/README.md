@@ -35,7 +35,7 @@ list is empty and make a fallacy that an algorithm is O(1); we can only assume t
   - O(1) all cases
 - resize
   - O(N) all cases, due to deep-copying
-  - Tip: resize(int newCapacity) where newCapacity = oldCapacity + constant would take O(N) average-case for the add algorithm due to needing to resize in constant time. Therefore, it's advised to do newCapacity = oldCapacity*2 + 1 so that add() becomes O(1) average-case since it spreads out (amortizes) the cost of resizing enough.
+  - Tip: resize(int newCapacity) where newCapacity = oldCapacity + constant would take O(N) average-case for the add algorithm due to needing to resize in constant time. Therefore, it's advised to do ```newCapacity = oldCapacity*2 + 1``` so that add() becomes O(1) average-case since it spreads out (amortizes) the cost of resizing enough.
 - insert
   - O(N) worst-case, and F(N) = 2N due to resizing
   - O(N) average-case
