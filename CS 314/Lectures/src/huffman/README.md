@@ -55,6 +55,12 @@ Step 3: Build the Binary Tree, the root Node can be any Node you want to use.
 - So while the priority queue contains 2 or more Nodes, combine each two Nodes into a single tree
 - Keep doing the above step until there's only 1 Node within the priority queue that creates a single grand tree
 
+Here's a priority queue to a huffman tree:
+
+<img src="images/original_encoding_tree.png" height="45%" width="45%"></img>
+
+<img src="images/building_huffman_tree.png" height="45%" width="45%"></img>
+
 What happens during this process is that the characters with low frequency has greater depth in the tree, and the
 higher frequency characters has smaller depth.
 - Therefore, smaller depthed characters take less bits of data because it takes less to traverse through and
@@ -71,6 +77,10 @@ Ex on a lower frequency character: Go left, go right, found the leaf Node with c
 
 Ex on a higher frequency character: Go left, right, right, left, right, found the leaf Node with character 'E'
 - 01101 for coding of 'E', and the character 'E' would be 01000101 if it was not encoded
+
+Here is an example of a Huffman Tree:
+
+<img src="images/encoding_huffman.png" height="45%" width="45%"></img>
 
 ### How to Decode a Huffman Tree
 Since we know that traversing left of the tree appends a 0 and traversing right appends a 1, for every sequence that's
@@ -95,7 +105,7 @@ build the queue, tree, and then decode the encoding.
 Option 2: Encode the tree using bitstrams with pre-order traversal and add a 0 for internal Nodes and 1 for leaf Nodes
 - This works because all Huffman trees are full binary trees, so there only consists of internal or leaf Nodes
 
-### But how is Huffman Coding a problem with modenr CPUs?
+### But how is Huffman Coding a problem with modern CPUs?
 Nowadays, file systems don't save bits of information (because it's too small), so the CPU may automatically add extraneous
 0s to the file to make it larger and readable. This would destroy our encoding.
 - So we create an imaginary 256 ASCII character called "PEOF" which means "Psuedo End of File"
