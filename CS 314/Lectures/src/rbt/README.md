@@ -22,7 +22,8 @@ through each depth from top to bottom, backtrack, then right, and repeat.
 # Red Black Trees
 A binary search tree (BST) with more complex algorithms to ensure balance.
 - Worst-case height is 2log(N) because of balancing
-<img src="images/rbt_example.png" height="35%" width="35%"></img>
+
+<img src="images/rbt_example.png" height="45%" width="45%"></img>
 
 ### Red Black Tree (RBT) Rules
 1. Every Node is colored red or black
@@ -33,18 +34,20 @@ A binary search tree (BST) with more complex algorithms to ensure balance.
 	- This rule helps ensure the balancing of the tree
 	
 ### Example of a Violation of Rule 4
-The red black tree below violates rule 4 because starting from the root Node, not every path till a null-link has the same number of black Nodes. For example, go from Node 19 (root) to Node 12, then go right of Node 12 it's a null link so there's only 1 black Node which is the root. Now go from Node 19, to Node 12, then Node 0, then go to the right of Node 0 and there's 2 black Nodes for this path, which is different from the 1 black Node of the previous path. Therefore, the tree is not a red black tree.
 <img src="images/non_rbt_example.png" height="35%" width="35%"></img>
+
+The red black tree above violates rule 4 because starting from the root Node, not every path till a null-link has the same number of black Nodes. For example, go from Node 19 (root) to Node 12, then go right of Node 12 it's a null link so there's only 1 black Node which is the root. Now go from Node 19, to Node 12, then Node 0, then go to the right of Node 0 and there's 2 black Nodes for this path, which is different from the 1 black Node of the previous path. Therefore, the tree is not a red black tree.
 
 ### When to fix an unbalanced tree?
 Whenever there are 2 red Nodes linked together, we must rotate the Nodes because the links would become too unbalanced if there were more inserts.
 
 ### Case 1 Fixing RBT (Single Rotation)
 Case 1: Whenever the sibling of the parent is black.
-<img src="images/case1_fixing_rbt.png" height="35%" width="35%"></img>
+
+<img src="images/case1_fixing_rbt.png" height="75%" width="75%"></img>
 
 ### Case 2 Fixing RBT (Double Rotation)
-<img src="images/case2_fixing_rbt.png" height="35%" width="35%"></img>
+<img src="images/case2_fixing_rbt.png" height="75%" width="75%"></img>
 
 ### How to prevent Case 3 Fixing RBT
 Case 3: Whenever a sibling is red, not black.
