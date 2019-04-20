@@ -123,7 +123,7 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 		BNode<E> currentNode = node;
 
 		// iterate the right-subtree from this Node to get the maximum value
-		while(node.rightChild != null) {
+		while(currentNode.rightChild != null) {
 			// traverse right (greater value)
 			currentNode = currentNode.rightChild;
 		}
