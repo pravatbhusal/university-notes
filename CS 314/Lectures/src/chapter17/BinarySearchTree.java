@@ -127,7 +127,7 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 			// traverse right (greater value)
 			currentNode = currentNode.rightChild;
 		}
-		return node.data;
+		return currentNode.data;
 	}
 
 	// print the pre-order traversal of the tree
