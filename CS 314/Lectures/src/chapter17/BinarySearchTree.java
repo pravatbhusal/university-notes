@@ -142,8 +142,8 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 			System.out.println(node.data);
 
 			// traverse through the entire tree, per level
-			printPreOrderHelper(node.rightChild);
 			printPreOrderHelper(node.leftChild);
+			printPreOrderHelper(node.rightChild);
 		}
 	}
 
@@ -155,14 +155,14 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	// a helper method to recursively print the in-order traversal
 	private void printInOrderHelper(BNode<E> node) {
 		if(node != null) {
-			// traverse through the right sub-tree
-			printInOrderHelper(node.rightChild);
+			// traverse through the left sub-tree
+			printInOrderHelper(node.leftChild);
 
 			// print in-between the recursive calls
 			System.out.println(node.data);
 
-			// traverse through the left sub-tree
-			printInOrderHelper(node.leftChild);
+			// traverse through the right sub-tree
+			printInOrderHelper(node.rightChild);
 		}
 	}
 
@@ -175,8 +175,8 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	private void printPostOrderHelper(BNode<E> node) {
 		if(node != null) {
 			// traverse through the entire tree, per level
-			printPostOrderHelper(node.rightChild);
 			printPostOrderHelper(node.leftChild);
+			printPostOrderHelper(node.rightChild);
 
 			// print after the recursive calls
 			System.out.println(node.data);
