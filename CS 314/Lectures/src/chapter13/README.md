@@ -53,9 +53,10 @@ Utilizes high (last index), low (first index), and middle (index of half)
 - However, worst-case is O(N^2) if the starting pivot becomes the greatest or smallest element because the dividing is no longer log(N) and becomes N. It can also become O(N^2) is the list is already sorted.
 
 ### Merge Sort (Stable)
-1. Split the list into sub-lists until each sub-list contains 0 or 1 elements.  
-2. Sort the smaller lists, then merge them together.  
-- The division and merge portion takes log2(N) times, and the sorting takes N times; therefore, it takes O(Nlog(N)) time for all cases
+1. Split the list into sub-lists until each sub-list contains 0 or 1 elements.
+2. Merge each two individually sorted sub-lists lists.  
+3. As you merge smaller individually sorted sub-lists, sooner or later the original list will merge into a sorted list.  
+- Dividing the list takes log2(N) time, and merging two individually sorted sub-lists takes O(N) time; therefore, it takes O(Nlog(N)) time for all cases
 
 # Break-Even Analysis
 
