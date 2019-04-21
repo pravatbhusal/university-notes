@@ -75,9 +75,9 @@ What's the maximum number of edges in an undirected graph (excluding multigraphs
 - In a directed graph, it needs twice as many edges since Nodes CANNOT go both ways, so it's ```N*(N - 1)```
 
 In a game of Scrabble, there are 5-letter words with a total of 8660 words (vertices). There exists edges between each
-word if they are one letter different. By doing probability mathematics, there are 24,942 edges.  
+word if they are one letter different. In this graph, it showed 24,942 edges.  
 Is this graph a Sparse or Dense graph?
-- Well, since it's an undirected graph, the maximum number of edges are N * (N - 1) / 2 = 37,493,470
+- Well, since it's an undirected graph, the maximum number of edges are N * (N - 1) / 2 = 37,493,470 where N = 8660
 - Clearly, that's a very small number compared to 24,942 edges, so it's a Sprase graph
 
 ### Unweighted Shortest Path Algorithm
