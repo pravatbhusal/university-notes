@@ -99,12 +99,10 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 					// delete the Node by linking the Node's parent to the Node's right child
 					node = node.rightChild;
 				} else {
-					// the Node has two children, so copy it to the max of the right-subtree
+					// set the Node's data to the smallest Node of the right-subtree
 					node.data = getMaxValue(node.rightChild);
 
-					// now there are duplicates, remove the max of the right-subtree Node
-					/* sooner or later it'll hit the original max of the left
-						subtree and execute the leaf Node deletion case */
+					// remove the smallest Node of the right-subtree because it's now a duplicate
 					node.rightChild = removeHelper(node.data, node.rightChild);
 
 					// since it's recursive, we need to backtrack size correctly (GACKY!)
