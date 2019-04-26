@@ -21,7 +21,7 @@ through each depth from top to bottom, backtrack, then right, and repeat.
 
 # Red Black Trees
 A binary search tree (BST) with more complex algorithms to ensure balance. Balancing is important because whenever doing operations like add or search within the tree, it would be O(log2(N)) in the worst and average-case for a Red Black Tree. However, if we never balanced a binary search tree; then for example if all Nodes have a chain to the right or to the left (ascending or descending order), it would cause O(N) time for operations like add and search.
-- Worst-case height for RBT is 2*log2(N), unlike a conventional Binary Search Tree which is O(N)
+- Worst-case height for RBT is 2*log2(N), which is smaller than a conventional Binary Search Tree which is N
 
 <img src="images/rbt_example.png" height="45%" width="45%"></img>
 
