@@ -119,7 +119,8 @@ Dijkstra's Algorithm: Edges are weighted, and the weights are positive.
       - Set the previous of the destination vertex to the current vertex
 
 The algorithm uses Priority Queues to select the next vertex to eventually ensure shortest paths in a weighted graph.
-      
+
+###### Example of a Graph using Dijkstra's Algorithm
 <img src="images/dijkstra_graph.png" height="42.5%" width="42.5%"></img>
       
 Once determining the shortest path, the greatest cost from a Vertex is the diameter. In the picture above, the diameter is 17 because Vertex E is the greatest cost Vertex.
@@ -135,6 +136,7 @@ A* Algorithm: Instead of setting vertices to infinity at first, estimate the cos
   - Results in a Tree data-structure
 - Minimum Spanning Tree: A spanning tree created to achieve the minimum possible total weight
 
+###### Example of a Minimum Spanning Tree
 <img src="images/spanning_tree.png" height="35%" width="35%"></img>
 
 Prim's Algorithm: An algorithm that determines a minimum spanning tree from a Graph.  
@@ -145,4 +147,5 @@ Prim's Algorithm: An algorithm that determines a minimum spanning tree from a Gr
   - It doesn't matter which vertex you pick
 2. Add the lowest cost edge between the tree and vetex that is not yet part of the spanning tree UNTIL every vertex is part of the spanning tree  
 
+###### Example of a Minimum Spanning Tree using Prim's Algorithm
 <img src="images/prims_graph.png" height="35%" width="35%"></img>
