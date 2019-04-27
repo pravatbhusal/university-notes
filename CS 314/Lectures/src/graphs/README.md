@@ -109,7 +109,7 @@ Dijkstra's Algorithm: Edges are weighted, and the weights are positive.
 ###### Dijkstra's Algorithm Implementation
 1. Pick the starting Vertex  
 2. Set the cost of the starting Vertex to 0, and all other vertices to INFINITY  
-3. Traverse through the vertices using Priority Queues, and while there are unvisited vertices:  
+3. Traverse through the vertices, and while there are unvisited vertices:  
   - Let the current vertex be the lowest cost vertex not yet visited
   - Mark the current vertex as visited
     - Use a scratch integer of 0 or 1 to determine visited; it's an integer because it may be useful for other algorithms
@@ -117,6 +117,8 @@ Dijkstra's Algorithm: Edges are weighted, and the weights are positive.
     - If the sum of the cost of the current vertex and the cost of the edge is less than the cost of the destination vertex
       - Update the cost of the destination vertex
       - Set the previous of the destination vertex to the current vertex
+
+The algorithm uses Priority Queues to select the next vertex to eventually ensure shortest paths in a weighted graph.
       
 <img src="images/dijkstra_graph.png" height="35%" width="35%"></img>
       
@@ -143,4 +145,3 @@ Prim's Algorithm: An algorithm that determines a minimum spanning tree from a Gr
 2. Add the lowest cost edge between the tree and vetex that is not yet part of the spanning tree UNTIL every vertex is part of the spanning tree  
 
 <img src="images/prims_graph.png" height="35%" width="35%"></img>
-
