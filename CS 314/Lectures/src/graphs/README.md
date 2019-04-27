@@ -120,10 +120,11 @@ Dijkstra's Algorithm: Edges are weighted, and the weights are positive.
 
 The algorithm uses Priority Queues to select the next vertex to eventually ensure shortest paths in a weighted graph.
       
-<img src="images/dijkstra_graph.png" height="35%" width="35%"></img>
+<img src="images/dijkstra_graph.png" height="42.5%" width="42.5%"></img>
       
 Once determining the shortest path, the greatest cost from a Vertex is the diameter. In the picture above, the diameter is 17 because Vertex E is the greatest cost Vertex.
-      
+
+### Other Shortest Positive Weighted Path Algorithms
 A* Algorithm: Instead of setting vertices to infinity at first, estimate the cost of each vertex
 - Ex: A straight edge between two vertices would be estimated to cost less than a diagonal edge
 - Used a lot for transportation or video games
