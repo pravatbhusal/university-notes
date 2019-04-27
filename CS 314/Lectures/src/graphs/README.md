@@ -82,13 +82,14 @@ Is this graph a Sparse or Dense graph?
 
 ### Unweighted Shortest Path Algorithm
 To find the unweighted shortest path between vertices, do a breadth first search (using the Queue data structure)
-- Diameter: Longest shortest path in a graph
+- Diameter: Longest, shortest path in a graph
+  - There are multiple shortest paths in a graph from a starting vertex to other vertices, so the longest is the diameter
 - Center: A vertex that connects to the largest number vertices while having the shortest average path-length
 
 ###### Algorithm Implementation
-1. Set the distance of the starting vertex to 0 
-2. Create a Queue, and add the starting vertex
-3. While the queue is not empty
+1. Set the distance of the starting vertex to 0  
+2. Create a Queue, and add the starting vertex  
+3. While the queue is not empty  
   - Remove the front of the Queue
   - Loop through all edges of the current vertex
   - Get the Node that the edge connects to
@@ -96,3 +97,50 @@ To find the unweighted shortest path between vertices, do a breadth first search
     - Increment the current distance
     - Set the previous Node to the current Node
     - Add a new Node to the Queue
+    
+# Positive Weighted Shortest Path Algorithm
+Greedy Algorithm: An algorithm that does what is the best solution at each stage of solving a problem.
+- Ex: Fair Teams problem from Mike's Programming Assignment
+
+Dijkstra's Algorithm: Edges are weighted, and the weights are positive.  
+- The number of edges are NOT relevant to determining the shortest path, only the weight (cost) is
+- An example of a Greedy Algorithm
+
+###### Dijkstra's Algorithm Implementation
+1. Pick the starting Vertex  
+2. Set the cost of the starting Vertex to 0, and all other vertices to INFINITY  
+3. Traverse through the vertices using Priority Queues, and while there are unvisited vertices:  
+  - Let the current vertex be the lowest cost vertex not yet visited
+  - Mark the current vertex as visited
+    - Use a scratch integer of 0 or 1 to determine visited; it's an integer because it may be useful for other algorithms
+  - For each edge from the current vertex:
+    - If the sum of the cost of the current vertex and the cost of the edge is less than the cost of the destination vertex
+      - Update the cost of the destination vertex
+      - Set the previous of the destination vertex to the current vertex
+      
+<img src="images/dijkstra_graph.png" height="35%" width="35%"></img>
+      
+Once determining the shortest path, the greatest cost from a Vertex is the diameter. In the picture above, the diameter is 17 because Vertex E is the greatest cost Vertex.
+      
+A* Algorithm: Instead of setting vertices to infinity at first, estimate the cost of each vertex
+- Ex: A straight edge between two vertices would be estimated to cost less than a diagonal edge
+- Used a lot for transportation or video games
+
+### Spanning Tree
+- Spanning Tree: A sub-set of a Graph which covers all vertices using the smallest number of edges
+  - The tree Does NOT have any cycles (loops), and it cannot be disconnected
+  - Results in a Tree data-structure
+- Minimum Spanning Tree: A spanning tree created to achieve the minimum possible total weight
+
+<img src="images/spanning_tree.png" height="35%" width="35%"></img>
+
+Prim's Algorithm: An algorithm that determines a minimum spanning tree from a Graph.  
+- An example of a Greedy Algorithm
+
+###### Prim's Algorithm Implementation
+1. Pick an arbitrary vertex
+  - It doesn't matter which vertex you pick
+2. Add the lowest cost edge between the tree and vetex that is not yet part of the spanning tree UNTIL every vertex is part of the spanning tree  
+
+<img src="images/prims_graph.png" height="35%" width="35%"></img>
+
