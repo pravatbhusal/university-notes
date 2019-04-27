@@ -80,13 +80,13 @@ Is this graph a Sparse or Dense graph?
 - Well, since it's an undirected graph, the maximum number of edges are ```N * (N - 1) / 2 = 37,493,470``` where N = 8660
 - Clearly, that's a very small number compared to 24,942 edges, so it's a Sprase graph
 
-### Unweighted Shortest Path Algorithm
+# Unweighted Shortest Path Algorithm
 To find the unweighted shortest path between vertices, do a breadth first search (using the Queue data structure)
 - Diameter: Longest, shortest path in a graph
   - There are multiple shortest paths in a graph from a starting vertex to other vertices, so the longest is the diameter
 - Center: A vertex that connects to the largest number vertices while having the shortest average path-length
 
-###### Algorithm Implementation
+###### General Unweighted Shortest Path Algorithm Implementation
 1. Set the distance of the starting vertex to 0  
 2. Create a Queue, and add the starting vertex  
 3. While the queue is not empty  
