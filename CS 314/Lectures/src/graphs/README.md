@@ -104,6 +104,7 @@ Greedy Algorithm: An algorithm that does what is the best solution at each stage
 
 Dijkstra's Algorithm: Edges are weighted, and the weights are positive.  
 - The number of edges are NOT relevant to determining the shortest path, only the weight (cost) is
+  - The algorithm finds the shortest path from a source vertex to ALL the other vertices in a graph, so it will visit all vertices within the graph
 - An example of a Greedy Algorithm
 
 ###### Dijkstra's Algorithm Implementation
@@ -121,9 +122,12 @@ Dijkstra's Algorithm: Edges are weighted, and the weights are positive.
 The algorithm uses Priority Queues to select the next vertex to eventually ensure shortest paths in a weighted graph.
 
 ###### Example of a Graph using Dijkstra's Algorithm
+What is the lowest cost path from A to E?
+
+The picture below shows the lowest cost paths from vertex A to any other vertex using Dijkstra's Algorithm.
 <img src="images/dijkstra_graph.png" height="42.5%" width="42.5%"></img>
-      
-Once determining the shortest path, the greatest cost from a Vertex is the diameter. In the picture above, the diameter is 17 because Vertex E is the greatest cost Vertex.
+
+Therefore, the lowest cost path from A to E is 17. It is also the diameter (the greatest, shortest path cost).
 
 ### Other Shortest Positive Weighted Path Algorithms
 A* Algorithm: Instead of setting vertices to infinity at first, estimate the cost of each vertex
