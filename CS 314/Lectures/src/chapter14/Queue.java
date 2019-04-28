@@ -11,7 +11,7 @@ public class Queue<E> {
 	// last item added to the queue
 	private int last;
 
-	// current queue of the queue
+	// current size of the queue
 	private int size;
 
 	// constructor, initialize the queue container
