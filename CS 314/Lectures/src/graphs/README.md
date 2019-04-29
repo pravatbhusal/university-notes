@@ -108,18 +108,17 @@ Dijkstra's Algorithm: Edges are weighted, and the weights are positive.
 - An example of a Greedy Algorithm
 
 ###### Dijkstra's Algorithm Implementation
+Use a PriorityQueue with the priority to be the least cost Vertex at the front (current Vertex), and the greatest cost Vertex at the end.
+
 1. Pick the starting Vertex  
 2. Set the cost of the starting Vertex to 0, and all other vertices to INFINITY  
-3. Traverse through the vertices, and while there are unvisited vertices:  
-  - Let the current vertex be the lowest cost vertex not yet visited
-  - Mark the current vertex as visited
-    - Use a scratch integer of 0 or 1 to determine visited; it's an integer because it may be useful for other algorithms
-  - For each edge from the current vertex:
-    - If the sum of the cost of the current vertex and the cost of the edge is less than the cost of the destination vertex
-      - Update the cost of the destination vertex
-      - Set the previous of the destination vertex to the current vertex
-
-The algorithm uses Priority Queues to select the next vertex to eventually ensure shortest paths in a weighted graph.
+3. While there are unvisited vertices:  
+  - Enqueue the current vertex to the front
+  - Mark the current vertex as visited, then dequeue the current vertex
+  - Loop through each of the current vertex's edges to a destination vertex
+    - Enqueue each destination vertex
+    - If the sum of the cost from the current vertex to the destination vertex is less than the current destination vertex's cost, then update the destination vertex's cost to the smaller sum
+    - Now the new current Vertex is the front of the Queue (smallest Vertex), so keep repeating step 3 until visiting all vertices
 
 ###### Example of a Graph using Dijkstra's Algorithm
 What is the lowest cost path from A to E?
