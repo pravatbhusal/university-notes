@@ -34,32 +34,51 @@ Tranforming a Key to an Integer can use 4 techniques:
 4. Casting: Very simple, such as casting characters to integers in Java
 
 ### How to Implement The "Mapping" Technique
-The mapping technique transforms hashed key value into a legal index on a HashTable's Array container.
+The mapping technique transforms a hashed key into a legal index on a HashTable's Array container. Therefore, in average-case it takes O(1) time to get the value of a key.
 
-Typically, get the location on a table by taking the result of a hash function, then divide by the size of the table, and take the remainder as the integer index.
-- ```index = key % size```
-- Empirical evidence shows prime number as best for the size
-  - Ex: If there's 1000 elements in the hash table, make the size equal to 997 or 1009 elements
+Typically, get the key's index in the Array container by doing the modulus of the result of the hash function (which gets the hashed key) and the Array container's length
+- ```index = hashedKey % length```
+- Empirical evidence shows prime number as best for the length
+  - Ex: If the Array container's length is 1000, then determine the index using 997 or 1009
+  
+###### Resizing The HashTable
+Whenever we resize the HashTable, we must re-hash all the keys within the table using the new length of the Array.
+- This is because we want to maintain the relative distance of every element in the HashTable to make it spread-out
+  - This also helps prevent collisions since the old hashes uses the old size, so hashing using the new length may collide any new keys added into the table
   
 ###### Visual Example of The Mapping Technique
 <img src="images/mapping.png" height="35%" width="35%"></img>
 
 # Hashing Collisions
-What to do when inserting an element onto the Array container, but there's already something present?
+Hashing Collisions happen whenever two different keys map to the same index within the Array container.
 
-### Open Addressing
+For Strings, it uses the ```hashCode``` method which actually prevents collisions. How it works is that for each character and its position in the String, the String's hash is the sum of the unicode of each character multiplied by its position in the String.
+
+Below are techniques to fix Hashing Collisions.
+
+### Open Addressing (Harder, and Not Conventional)
 Search forward of backwards for an open space in the Array container.
 - Linear Probing: Move forward spots until finding an open index.
   - Null if never occupied an index
   - When removing, replace the index as a blank
 - Quadratic Probing: Moving 1 spot, 2 spots, 4 spots, 8 spots, 16 spots, etc.
 
-For both probings, resize the Array when load factor reaches a limit (such as the end of the Array container).
+###### How To Do "Get" with Duplicate Keys
+Let's say the client requests for a key's value, but the key is a duplicate key in the HashTable
+- The program hashes the sent key, and receives its index
+- Then the program goes to the index and checks if the index's key is equal to the sent key
+  - If yes, then return the key's value
+  - If not, then go to the very beginning of the Array and search for the sent key
 
-### Closed Addressing
+### Closed Addressing (Easier, and Conventionally Better)
 Each element of the HashTable is another data structure
-- Such as a LinkedList, balanced BST, etc.
+- Such as a LinkedList (recommended), balanced BST, etc.
 - This takes more space, but it's easier to implement
+
+###### How To Do "Get" with Duplicate Keys
+Let's say the client requests for a key's value, but the key is a duplicate key in the HashTable
+- The program hashes the sent key, and receives its index
+- Then the program goes to the index and searches the data structure until finding the sent key
 
 ### Implementing a HashTable in Java
 Use the hashCode method from the Object class to receive an integer index of the Object key
