@@ -11,6 +11,12 @@ Overcomes the problems of an ArrayList while maintaining the fast access, insert
 3. HashMap class
 - Implements the Map interface with the internal storage container as a HashTable for the keys
 
+### Comparing Time Complexity to Add for Other Data Structures
+1. Java's HashSet (fastest), O(1) average-case; it's faster than HashTable314 because of small T(N) efficiencies
+2. HashTable314 (fast), O(1) averge-case
+3. Naive BST (medium), O(log2(N)) average-case
+4. Java's TreeSet (slowest), O(log2(N)) average-case + balancing time because of Red-Black Tree implementation
+
 ### Hash Functions
 - Hash: To mix or randomly shuffle
 - Hash Function: Take a large piece of data, reduce it to smaller pieces of data
@@ -80,7 +86,7 @@ Let's say the client requests for a key's value, but the key is a duplicate key 
 - The program hashes the sent key, and receives its index
 - Then the program goes to the index and searches the data structure until finding the sent key
 
-### Implementing a HashTable in Java
+# Implementing a HashTable in Java
 Use the hashCode method from the Object class to receive an integer index of the Object key
 - Notes to remember about hashCode and equals:
   - If two Objects are equal according to the equals method, then calling hashCode would produce the same integer result
