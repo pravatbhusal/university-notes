@@ -13,7 +13,7 @@ Overcomes the problems of an ArrayList while maintaining the fast access, insert
 
 ### Comparing Time Complexity to Add for Other Data Structures
 1. Java's HashSet (fastest), O(1) average-case; it's faster than HashTable314 because of small T(N) efficiencies
-2. HashTable314 (fast), O(1) averge-case
+2. HashTable314 (fast), O(1) average-case
 3. Naive BST (medium), O(log2(N)) average-case
 4. Java's TreeSet (slowest), O(log2(N)) average-case + balancing time because of Red-Black Tree implementation
 
