@@ -42,20 +42,20 @@ Note: The largest number you can represent with 8 bits is 11111111 (or 255 in de
 - Therefore, ASCII characters can only go up to 255 characters.
 
 ### Huffman Coding Steps
-Step 1: Determine the frequency (weight) of all characters in the file.
+Step 1: Determine the frequency (weight) of all characters in the file
 - Use an Array of integers to put the keys (ASCII number) and value (frequency of character) to each index
   - Ex: If the character is "A", that's an ASCII of 65 so the Array increments index 65 by 1
   
-Step 2: Create Binary Tree Nodes (not BST) of the Array indexes that had more than 0 frequency.
-- Then place the Nodes in a priority Queue where the lower the frequency, the higher the priority
-  - Note: Do NOT use the built-in Java priority queue because when a tie occurs it arbitrarily handles the tie
-    - We want the new element with a tie to be placed behind the tied element
+Step 2: Create a Priority Queue where Node with lower frequencies have a higher priority
+- Enqueue a Binary Tree Node for each key that has a frequency greater than 0
     
-Step 3: Build the Binary Tree, the root Node can be any Node you want to use.
-- So while the priority queue contains 2 or more Nodes, combine each two Nodes into a single tree
-- Keep doing the above step until there's only 1 Node within the priority queue that creates a single grand tree
+Step 3: Build the Binary Tree
+- While the Priority Queue does not contain only 1 Node, dequeue the first two Nodes
+- Create a new TreeNode, set its left child to the first dequeued Node and its right child as the second dequeued Node, then set the data of the new TreeNode to the sum of the left and right children's frequencies
+- Keep doing the above step until there's only 1 Node within the Priority Queue
+- Once there's only 1 Node in the Priority Queue, set the root Node of the Tree to the single Node in the Queue
 
-Here's a priority queue to a huffman tree:
+Here's an example of a Priority Queue to a Huffman Tree:
 
 <img src="images/original_encoding_tree.png" height="45%" width="45%"></img>
 
