@@ -41,7 +41,7 @@ characters (like x or z)
 Note: The largest number you can represent with 8 bits is 11111111 (or 255 in decimal notation).
 - Therefore, ASCII characters can only go up to 255 characters.
 
-### Huffman Coding Steps
+### Huffman Encoding Data Structures
 Step 1: Determine the frequency (weight) of all characters in the file
 - Use an Array of integers to put the keys (ASCII number) and value (frequency of character) to each index
   - Ex: If the character is "A", that's an ASCII of 65 so the Array increments index 65 by 1
