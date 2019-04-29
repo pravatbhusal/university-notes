@@ -41,10 +41,10 @@ Typically, get the key's index in the Array container by doing the modulus of th
 - Empirical evidence shows prime number as best for the length
   - Ex: If the Array container's length is 1000, then determine the index using 997 or 1009
   
-###### Resizing The HashTable
+###### Re-sizing The HashTable
 Whenever we resize the HashTable, we must re-hash all the keys within the table using the new length of the Array.
 - This is because we want to maintain the relative distance of every element in the HashTable to make it spread-out
-  - This also helps prevent collisions since the old hashes uses the old size, so hashing using the new length may collide any new keys added into the table
+  - This also helps prevent collisions since the old hashes uses the old length, so hashing using the new length may collide any new keys added into the table
   
 ###### Visual Example of The Mapping Technique
 <img src="images/mapping.png" height="35%" width="35%"></img>
