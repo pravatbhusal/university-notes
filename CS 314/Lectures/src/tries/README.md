@@ -1,5 +1,6 @@
 # Tries
 A general tree in which each NOde stores a character and data structure (list) to refer to its children.
+- Typically just contains a root Node with no value associated with it
 - Can contain multiple children for each Node, so it's not a binary tree
 - Stores words or phrases in a dictionary as a Tree
 
