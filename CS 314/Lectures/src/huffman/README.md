@@ -67,6 +67,19 @@ higher frequency characters has smaller depth.
 build an encoding, while the greater depthed characters would take more data than the smaller depthed characters
 because they would take more to traverse through and build and encoding
 
+### Writing Header onto a Compress File
+We must write the header format onto a compressed file so that whenever the client decompresses the compressed file they can properly do so by re-creating the Huffman Tree.
+
+1. Standard Counts Format (STC)
+- Write the header, then write the frequency of every ASCII character into the file
+- When decompressing, read the frequencies and re-create the Queue, then create the Tree from the Queue
+- This implementation is best used for larger files because if we did the Tree format instead then the tree would be too large, possibly larger than the Counts format
+
+2. Standard Tree Format (STF) 
+- Write the header, then write a formmated version of the tree's internal Nodes and children Nodes into the file
+- When decompressing, pre-order traversal the header to re-create the Tree
+- This implementation is best used for smaller files because if we did the Count format instead it would need to write the each frequency per character as a 32-bit integer which would would be too large, possibly larger than the Tree format
+
 ### How to Encode Characters within a Huffman Tree
 - As we go left the tree, append a 0
 - As we go right the tree, append a 1
@@ -81,19 +94,6 @@ Ex on a higher frequency character: Go left, right, right, left, right, found th
 Here is an example of a Huffman Tree:
 
 <img src="images/encoding_huffman.png" height="45%" width="45%"></img>
-
-###### Writing Header onto a Compress File
-We must write the header format onto a compressed file so that whenever the client decompresses the compressed file they can properly do so by re-creating the Huffman Tree.
-
-1. Standard Counts Format (STC)
-- Write the header, then write the frequency of every ASCII character into the file
-- When decompressing, read the frequencies and re-create the Queue, then create the Tree from the Queue
-- This implementation is best used for larger files because if we did the Tree format instead then the tree would be too large, possibly larger than the Counts format
-
-2. Standard Tree Format (STF) 
-- Write the header, then write a formmated version of the tree's internal Nodes and children Nodes into the file
-- When decompressing, pre-order traversal the header to re-create the Tree
-- This implementation is best used for smaller files because if we did the Count format instead it would need to write the each frequency per character as a 32-bit integer which would would be too large, possibly larger than the Tree format
 
 ### How to Decode a Huffman Tree
 Since we know that traversing left of the tree appends a 0 and traversing right appends a 1, for every sequence that's
