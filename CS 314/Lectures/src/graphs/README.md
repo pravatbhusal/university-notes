@@ -39,7 +39,8 @@ What if we reduced the problem to only crossing each edge (bridge) exactly once?
 
 <img src="images/undirected_graph.png" height="35%" width="35%"></img>
 
-- Multi Graph: A graph in which two vertices can share multiple edges
+- Multi-Graph: A graph in which two vertices can share multiple edges
+  - The example below shows (V1, V2) and (V4, V5) as vertices with multiple edges
 
 <img src="images/multigraph.png" height="45%" width="45%"></img>
 
