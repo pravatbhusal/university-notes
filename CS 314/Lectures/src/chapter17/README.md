@@ -68,7 +68,7 @@ public static void traversal(BNode node) {
 }
 ```
 # Binary Search Tree (BST)
-A binary tree in which every node's left subtree holds values less than the node's value, and every right subtree holds values greater than the node's value.
+A binary tree in which every node's left subtree holds values less than the node's value, and every right subtree holds values greater than the node's value. The average-case height for a BST is 2*log(N) where N is the number of Nodes.
 
 <img src="images/binary_search_tree.png" height="55%" width="55%"></img>
 
