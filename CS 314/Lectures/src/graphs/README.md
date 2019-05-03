@@ -39,6 +39,10 @@ What if we reduced the problem to only crossing each edge (bridge) exactly once?
 
 <img src="images/undirected_graph.png" height="35%" width="35%"></img>
 
+- Multi Graph: A graph in which two vertices can share multiple edges
+
+<img src="images/multigraph.png" height="35%" width="35%"></img>
+
 ### Weighted Graphs
 Sometimes graphs have a "weight" or cost when travelling along an edge. This is called a weighted graph.
 
