@@ -14,7 +14,7 @@ Heap Order Property: The value in the root of any sub-tree is greater than or eq
 ### Enqueue for Max Heap
 1. Add new element to the next open spot in the Array
 2. Swap with its parent if the new element is greater than its Parent.
-3. Trickle-down: Continue back-up the tree as long as the new value is greater than the new parent Node.
+3. Trickle-up: Continue back-up the tree as long as the new value is greater than the new parent Node.
 
 ### Dequeue for Max Heap
 The root Node (maximum value) will be dequeued because it's the front.  
