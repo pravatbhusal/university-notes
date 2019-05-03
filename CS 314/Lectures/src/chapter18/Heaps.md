@@ -1,13 +1,12 @@
 # Heaps
 A complete binary tree, typically used to create Priority Queues for maximum and minimum values.
 
+<img src="images/min_max_heaps.gif" height="50%" width="50%"></img>
+
 ### Heap Container
 Heaps use an Array container instead of Nodes because of a Heap's order property.
 
-For an element at position i of the Array container:
-- its parent index is: i / 2
-- its left child index is: i * 2
-- its right child index is: (i * 2) + 1
+<img src="images/internal_heap_storage.png" height="50%" width="50%"></img>
 
 # Max Heap
 Heap Order Property: The value in the root of any sub-tree is greater than or equal to all other values in the sub-tree.
