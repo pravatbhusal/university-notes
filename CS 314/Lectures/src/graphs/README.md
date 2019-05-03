@@ -139,7 +139,7 @@ A* Algorithm: Instead of setting vertices to infinity at first, estimate the cos
   - Results in a Tree data-structure
 - Minimum Spanning Tree: A spanning tree created to achieve the minimum possible total weight
 
-###### Example of a Minimum Spanning Tree
+###### Example of a Spanning Tree
 <img src="images/spanning_tree.png" height="35%" width="35%"></img>
 
 Prim's Algorithm: An algorithm that determines a minimum spanning tree from a Graph.  
