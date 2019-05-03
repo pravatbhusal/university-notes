@@ -77,7 +77,7 @@ Let's say the client requests for a key's value, but the key is a duplicate key 
   - If not, then go to the very beginning of the Array and search for the sent key
 
 ### Closed Addressing (Easier, and Conventionally Better)
-Each element of the HashTable is another data structure
+Each element of the HashTable is another data structure (called a bucket).
 - Such as a LinkedList (recommended), balanced BST, etc.
 - This takes more space, but it's easier to implement
 
