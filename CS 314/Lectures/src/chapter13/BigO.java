@@ -104,6 +104,18 @@ public class BigO {
 
 		// Complexity: O(1) + O(n) + O(n) => O(n)
 	}
+	
+	// an algorithm that uses an outer loop of log2(N) with a dependent inner-loop, runs on O(N) time
+	public static void innerLogLinearTime(int n) {
+		while(n > 1) { // f(n) = log2(n)
+			for(int i = 0; i < n; i++) {
+				/* This may seem like a O(n*log2(n)) solution, but the total
+					iterations is about 2*n times if you sum them up */
+			} // f(n) = n + n / 2 + n / 4 + ... = 2*n
+			n /= 2;
+		}
+		// Complexity: O(log2(n) + 2*n) = O(n)
+	}
 
 	// an algorithm in terms of n that runs on O(n^2) time
 	public static void quadraticTime(int n) {
