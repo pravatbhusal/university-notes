@@ -13,12 +13,7 @@ The solution to the original problem can be calculated from results of smaller p
 4. Determine the order in which the sub-problems will be solved.  
 5. Determine how to compute the final answer using the previously computed sub-problems.
 
-# Example of Dynamic Programming
-For Fibonacci, we implemented it using recursion with the naive method: ```f(n) = fib(n - 1) + fib(n - 2)```
-- However, the time complexity of this method is O(2^N) and calls many redundant method calls
-- Therefore, instead of using recursion, we can use iteration to prevent redundant method calls
-
-### Memoization
+# Memoization
 Store (cache) results from functions such as method calls for later look-up.
 
 We can use a data structure like an ArrayList to store each method(N) result, then if the user asks to see the results of the
@@ -26,6 +21,11 @@ same method(N) it would just return the index corresponding to N, which would be
 the redundant program.
 
 However, a drawback is the space and time trade-off since the data structure would sacrifice more space for time.
+
+# Fibonacci Problem using Dynamic Programming
+For Fibonacci, we implemented it using recursion with the naive method: ```f(n) = fib(n - 1) + fib(n - 2)```
+- However, the time complexity of this method is O(2^N) and calls many redundant method calls
+- Therefore, instead of using recursion, we can use iteration to prevent redundant method calls
 
 ### Memoization of The Fibonnacci Problem
 1. Check if N is present in the ArrayList, if it is then return the value  
