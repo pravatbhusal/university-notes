@@ -19,7 +19,7 @@ public class Switch {
 		/*
 		 * an example of a switch statement WITHOUT break;
 		 * 
-		 * it will execute ALL cases <- Read Extra Notes #1 for more information
+		 * it will execute ALL cases, including default <- Read Extra Notes #1 for more information
 		 */
 		String season = "Spring";
 		switch(season) {
@@ -76,7 +76,7 @@ public class Switch {
 		case 5:
 			System.out.println("Slow down and stop...");
 			break;
-			// cases 6, 7, and 87 are for a punch animation
+			// cases 6, 7, and 8 are for a punch animation
 		case 6:
 			System.out.println("Ready fists...");
 		case 7:
