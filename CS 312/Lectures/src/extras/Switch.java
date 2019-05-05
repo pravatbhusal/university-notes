@@ -19,7 +19,7 @@ public class Switch {
 		/*
 		 * an example of a switch statement WITHOUT break;
 		 * 
-		 * it will execute ALL cases, including default <- Read Extra Notes #1 for more information
+		 * it will execute ALL cases, including default <- Read Definitions #4 for more information
 		 */
 		String season = "Spring";
 		switch(season) {
