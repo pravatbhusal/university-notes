@@ -23,16 +23,16 @@ public class Switch {
 		 */
 		String season = "Spring";
 		switch(season) {
-		case "Spring":
-			System.out.println("We start at Spring!");
-		case "Summer":
-			System.out.println("Then we go to Summer!");
-		case "Fall":
-			System.out.println("Then we're at Fall!");
-		case "Winter":
-			System.out.println("Now we're finally at Winter!");
-		default:
-			System.out.println("The original season we started at was: " + season);
+			case "Spring":
+				System.out.println("We start at Spring!");
+			case "Summer":
+				System.out.println("Then we go to Summer!");
+			case "Fall":
+				System.out.println("Then we're at Fall!");
+			case "Winter":
+				System.out.println("Now we're finally at Winter!");
+			default:
+				System.out.println("The original season we started at was: " + season);
 		}
 		System.out.println();
 
@@ -40,16 +40,16 @@ public class Switch {
 		final int MAX_AGE = 25;
 		int myAge = (int) ((Math.random() * MAX_AGE) + 1);
 		switch(myAge) {
-		case 13:
-			System.out.println("I'm 13 years old.");
-			System.out.println("Yay! I'm at least a teenager!");
-			break;
-		case 18:
-			System.out.println("I'm 18 years old.");
-			System.out.println("Yay! I'm at least an adult!");
-			break;
-		default: 
-			System.out.println("No case for age: " + myAge);
+			case 13:
+				System.out.println("I'm 13 years old.");
+				System.out.println("Yay! I'm at least a teenager!");
+				break;
+			case 18:
+				System.out.println("I'm 18 years old.");
+				System.out.println("Yay! I'm at least an adult!");
+				break;
+			default: 
+				System.out.println("No case for age: " + myAge);
 		}
 		System.out.println();
 
@@ -60,32 +60,34 @@ public class Switch {
 		 */
 		int animation = 0;
 		switch(animation) {
-		// cases 0, 1, and 2 are for a jump animation
-		case 0:
-			System.out.println("Bend Legs...");
-		case 1:
-			System.out.println("Jump!");
-		case 2:
-			System.out.println("Fall down...");
-			break;
+			// cases 0, 1, and 2 are for a jump animation
+			case 0:
+				System.out.println("Bend Legs...");
+			case 1:
+				System.out.println("Jump!");
+			case 2:
+				System.out.println("Fall down...");
+				break;
+			
 			// cases 3, 4, and 5 are for a walk animation
-		case 3:
-			System.out.println("Ready legs...");
-		case 4:
-			System.out.println("Walk!");
-		case 5:
-			System.out.println("Slow down and stop...");
-			break;
+			case 3:
+				System.out.println("Ready legs...");
+			case 4:
+				System.out.println("Walk!");
+			case 5:
+				System.out.println("Slow down and stop...");
+				break;
+			
 			// cases 6, 7, and 8 are for a punch animation
-		case 6:
-			System.out.println("Ready fists...");
-		case 7:
-			System.out.println("Punch!");
-		case 8:
-			System.out.println("Pull fist back...");
-			break;
-		default:
-			System.out.println("This animation is not supported...");
+			case 6:
+				System.out.println("Ready fists...");
+			case 7:
+				System.out.println("Punch!");
+			case 8:
+				System.out.println("Pull fist back...");
+				break;
+			default:
+				System.out.println("This animation is not supported...");
 		}
 	}
 }
