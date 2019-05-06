@@ -42,7 +42,7 @@ Tranforming a Key to an Integer can use 4 techniques:
 ### How to Implement The "Mapping" Technique
 The mapping technique transforms a hashed key into a legal index on a HashTable's Array container. Therefore, in average-case it takes O(1) time to get the value of a key.
 
-Typically, get the key's index in the Array container by doing the modulus of the result of the hash function (which gets the hashed key) and the Array container's length
+Typically, get the key's index in the Array container by doing the modulus of the result of the hash function (which gets the hashed key as an integer) and the Array container's length
 - ```index = hashedKey % length```
 - Empirical evidence shows prime number as best for the length
   - Ex: If the Array container's length is 1000, then determine the index using 997 or 1009
@@ -56,9 +56,13 @@ Whenever we resize the HashTable, we must re-hash all the keys within the table 
 <img src="images/mapping.png" height="35%" width="35%"></img>
 
 # Hashing Collisions
-Hashing Collisions happen whenever two different keys map to the same index within the Array container.
+Hashing Collisions happen whenever two different keys map to the same index within the Array container. This is necessary to take into consideration whenever adding, removing, or getting from a HashTable.
 
 For Strings, it uses the ```hashCode``` method which actually prevents collisions. How it works is that for each character and its position in the String, the String's hash is the sum of the unicode of each character multiplied by its position in the String.
+
+Therefore, whenever calling ```String.hashCode()``` it returns the String's hash code to index within a hash function.
+- Make sure to receive the absolute value of the hashCode() method because some Object's hash codes return negative values
+  - Negative values throw an ```ArrayIndexOutOfBoundsException``` when indexing a HashTable's Array container
 
 Below are techniques to fix Hashing Collisions.
 
@@ -74,7 +78,13 @@ Let's say the client requests for a key's value, but the key is a duplicate key 
 - The program hashes the sent key, and receives its index
 - Then the program goes to the index and checks if the index's key is equal to the sent key
   - If yes, then return the key's value
-  - If not, then go to the very beginning of the Array and search for the sent key
+  - If not, then depending on the collision-prevention algorithm search for the target key
+  
+###### "Remove" then "Get" from a HashTable Using Linear Probing
+If the HashTable uses linear probing, then it must linearly search from the index until finding the target element to remove. Once it finds the target index, it sets the index to EMPTY (not null).
+- EMPTY is necessary because if the client requests to get an element within the table, the program indexes using the hash function
+- If the hash index doesn't contain the element, a linear search will look for the element
+  - The search short-circuits the moment it looks through all EMPTY indexes since anything passed the EMPTY       could not possibly be a hash for the element
 
 ### Closed Addressing (Easier, and Conventionally Better)
 Each element of the HashTable is another data structure (called a bucket).
