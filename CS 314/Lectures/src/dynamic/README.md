@@ -9,7 +9,7 @@ The solution to the original problem can be calculated from results of smaller p
 ### DP Algorithm
 1. Define the sub-problems using Mathematics/English.  
 2. Determine where the solution will be found.  
-3. Determine howt to create the first sub-problem.  
+3. Determine how to to create the first sub-problem.  
 4. Determine the order in which the sub-problems will be solved.  
 5. Determine how to compute the final answer using the previously computed sub-problems.
 
