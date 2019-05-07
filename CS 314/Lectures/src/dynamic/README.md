@@ -38,6 +38,7 @@ A "bin packing" problem where you have a set of items and each item has a weight
 
 Instead, we can memoize the problem. Create a 2D Array that shows the value of putting or not putting an item into the sack.
 
+### Knapsack Example Problem
 Here's an example below, where the item number, weight of item, and value of item for each item is shown.
 - The weight limit is 8, so the columns go from 0 to 8
 - The rows represent the list in each state, where an item is added per row
@@ -64,3 +65,5 @@ This implementation works because the 2D Array is structured so that each cell c
 Here is the matrix once completed:
 
 <img src="images/knapsack_completed.png" height="45%" width="45%"></img>
+
+Therefore, the answer to the example problem is 30 (bottom-right cell).
