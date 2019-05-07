@@ -42,7 +42,7 @@ Here's an example below, where the item number, weight of item, and value of ite
 - The weight limit is 8, so the columns go from 0 to 8
 - The rows represent the list in each state, where an item is added per row
 
-<img src="images/knapsack_uncompleted.png" height="35%" width="35%"></img>
+<img src="images/knapsack_uncompleted.png" height="45%" width="45%"></img>
 
 ### Interpreting The Matrix
 It's a greedy algorithm, in which the program fills each cell with its most optimal solution.
@@ -62,4 +62,5 @@ This implementation works because the 2D Array is structured so that each cell c
 - This comparision is done by placing the greater value (maximum) between ```V[i - 1, w]``` (do not add item into sack) versus ```V[i - 1, w - w[i]] + P[i]``` (the highest value possible without the added item, ```V[i - 1, w - w[1]]```, plus the added item, ```P[i]```, into the sack)
 
 Here is the matrix once completed:
-<img src="images/knapsack_completed.png" height="35%" width="35%"></img>
+
+<img src="images/knapsack_completed.png" height="45%" width="45%"></img>
