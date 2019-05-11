@@ -15,9 +15,10 @@ public class Interfaces implements ImplementedParent {
 	 * 		- The class that implements the interface must override the methods
 	 * 2. Interfaces cannot have instance variables
 	 * 		- However, interfaces can have public, static, final variables
-	 * 3. Interfaces have public methods, but NOT static or final
-	 * 4. Interfaces can be implemented an INFINITE number of times (separated by commas)
-	 * 5. Methods inside the interface Object do NOT have a body.
+	 * 3. Interfaces must have public methods.
+	 * 4. Interfaces can have implemented static methods.
+	 * 5. Interfaces can be implemented by a class an INFINITE number of times (separated by commas)
+	 * 6. Methods inside the interface Object do NOT have a body.
 	 */
 
 	public Interfaces() {
@@ -26,6 +27,9 @@ public class Interfaces implements ImplementedParent {
 		System.out.println(HAIR_COLOR); // output: BLACK
 		System.out.println(SKIN_COLOR); // output: BROWN
 		System.out.println(getName()); // output: Bob
+		
+		// using an implemented static method from the interface
+		ImplementedParent.sayHello();
 	}
 
 	// implemented from the ImplementedParent interface
