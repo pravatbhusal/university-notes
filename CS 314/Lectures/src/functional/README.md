@@ -164,5 +164,55 @@ The answer is 151.
 - sum -> 151
 
 ### Reduce Modifier
+Combines elements of a stream using a lambda combination function.
+- Accepts two parameters: an initial value and a lmabda to combine the initial value with each next element in the stream
 
+An Example of Factorial Using Reduce:
+```java
+public static int factorial(int n) {
+	// Assuming n is not a negative number.
+	// n! = 1 * 2 * 3 * ... * (n - 1) * n
+	return IntStream.range(2, n + 1).reduce(1, (a, b) -> a * b);
+}
+```
 
+# Double Colon Operator
+An operator that applies each element in a stream into a single parameter function.
+
+An Example of System.out.println using Double Colon:
+```java
+IntStream.of(1, 2, 3, 4, 5).forEach(System.out::println);
+// output: 1, 2, 3, 4, 5
+```
+Note: forEach works the same as map, but it doesn't return another Stream like map does.
+
+This is equivalent to:
+```java
+IntStream.of(1, 2, 3, 4, 5).forEach(n -> System.out.println(n));
+// output: 1, 2, 3, 4, 5
+```
+
+# Concurrency
+In parallel (simultaneously), breaking-up a problem into multiple threads if possible.
+
+Example of count (Length) of an IntStream in Parallel:
+```java
+long totalCount = IntStream.range(1, 101).parallel.count();
+```
+Parallel would run in multiple CPUs, depending on the number of cores you have.
+
+# Optional Data Structures
+In functional programming, sometimes an answer may or may not be found. Therefore, certain "optional" data structures can contain if a value was found or not.
+
+Example of an Optional Scenario:
+```java
+OptionalInt greaterThanFive = IntStream.of(1, 2, 3).filter(x -> x > 5).findFirst();
+
+// check if found a number greater than 5
+if(greaterThanFive.isPresent()) {
+	System.out.println(greaterThanFive.getAsInt());
+} else {
+	System.out.println("Could not find a number greater than 5 in the Stream!");
+}
+```
+The above example would output: ```Could not find a number greater than 5 in the Stream!``` because there is no value greater than 5 within the IntStream.
