@@ -62,11 +62,11 @@ Lambda Expressions: Expressions that describes a function with specified paramet
 	- Ex: If Objects are used, then the program returns an Object
 
 For example,
-```(java)
+```java
 (x) -> (x) * (x)
 ```
 Is equivalent to:
-```(java)
+```java
 public static int squared(int x) {
 	return x * x;
 }
@@ -119,3 +119,50 @@ public static int sumNumber(int arbitrary, int ... varArgs) {
 	return sum;
 }
 ```
+
+# Streams
+Sequence of elements from a data source that supports aggregate functions.
+
+### Non-functional Example (without Streams):
+```java
+int sum = 0;
+for(int i = 0; i <= 5; i++) {
+	sum += i * i;
+}
+```
+The answer is 55.
+
+### Functional Example (with Streams)
+Using the ```map``` modifier applies lambda to each element in the stream.
+- Abstracts-out loops
+- Map is an example of a "Higher-order Function": A function that takes in a function as an argument
+
+The example using an IntStream's map function:
+```java
+int sum = IntStream.range(1, 6).map(n -> n * n).sum();
+```
+The answer is 55.
+
+###### The Underlying Idea:
+- range(1, 6) -> [1, 2, 3, 4, 5]
+- [1, 2, 3, 4, 5] map -> [1, 4, 9, 16, 25]
+- [1, 4, 9, 16, 25] sum -> 55
+
+### Filter Modifier
+Removes/keeps elements of a stream using a boolean lambda.
+
+Example of Summing Odd Squared Numbers:
+```java
+int sum = IntStream.of(3, 1, 4, 1, 5, 9, 2, 6, 5, 3).filter(n -> n % 2 != 0).map(n -> n * n).sum();
+```
+The answer is 151.
+
+###### The Underlying Idea:
+- IntStream.of -> [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]
+- filter -> [3, 1, 1, 5, 9, 5, 3]
+- map -> [9, 1, 1, 25, 81, 25, 9]
+- sum -> 151
+
+### Reduce Modifier
+
+
