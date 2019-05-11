@@ -20,5 +20,11 @@ interface ImplementedParent {
 	// return skin color
 	public String getSkinColor();
 
+	// return the name
 	public String getName();
+	
+	// a static method to output "Hello World!"
+	public static void sayHello() {
+		System.out.println("Hello World!");
+	}
 }
